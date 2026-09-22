@@ -1,0 +1,6 @@
+case: T-A00-clean
+brief: brief.md
+artifact: screenshot.png
+clean_control: true
+nits: []
+inventory: []

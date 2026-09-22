@@ -19,6 +19,7 @@
 | L8 | Repo docs: this file, `docs/feature-request-design-uat-skill-2026-09-22.md`, `docs/build-and-test-plan.md`. |
 | L9 | `tools/Validate-DesignUatSkill.ps1` exits 0 when structure checks pass (BT0). |
 | L10 | `.github/workflows/bt0.yml` runs BT0. `docs/expected-nits.schema.md` locks YAML shape for #3/#5. Skill has severity rubric + per-image walk. |
+| L11 | Golden + adversarial fixtures (#3, absorbed #5): each case has brief + PNG + `expected-nits.yaml`; clean control is zero nits. |
 
 ## MUST NOT
 
@@ -48,6 +49,7 @@
 | A5 | Feature-request doc links issue #1 and maps MUSTs to A1–A4. |
 | A6 | Severity rubric + per-image walk in skill; BT0 CI workflow present. |
 | A7 | G1 fail-closed (blocker), G3 full inventory (`in_brief` / `NOT_IN_BRIEF`), G2 `delta_px`/`delta_hex` in schema + skill (#6 #7 #8). |
+| A8 | Fixture pack + `Validate-DesignUatFixtures.ps1` (A-F1–A-F4). |
 
 ## Related skills (companions)
 
@@ -67,5 +69,5 @@
 | Phase | Deliverable |
 |-------|-------------|
 | P0 | Docs, skill, template, validator, build plan (this PR) |
-| P1 | Golden fixture pack (#3) |
-| P2 | Adversarial fixtures + clean control (#5) |
+| P1 | Golden + absorbed adversarial fixtures (#3 / #5) — this PR |
+| P2 | G1/G2/G3 owner FRs #6–#8 (do not second-take) |

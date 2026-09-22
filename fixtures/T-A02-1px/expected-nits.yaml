@@ -1,0 +1,22 @@
+case: T-A02-1px
+brief: brief.md
+artifact: screenshot.png
+nits:
+  - gate: G2
+    class: layout
+    brief_field: cta.pad_left
+    where: screenshot.png CTA
+    expected: 24px
+    actual: 23px
+    severity: nit
+    delta_px: 1
+inventory:
+  - item: Club Madeira
+    kind: chrome
+    in_brief: yes
+  - item: Episode 01
+    kind: copy
+    in_brief: yes
+  - item: Start campaign
+    kind: copy
+    in_brief: yes
