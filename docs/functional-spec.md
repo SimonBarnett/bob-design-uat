@@ -1,0 +1,59 @@
+# Functional spec: design-uat skill (LOCKED)
+
+**Product:** `SimonBarnett/bob-design-uat` — fleet agent skill for **visual** UAT before Bob stamps human UAT.
+
+**MRB home:** https://github.com/SimonBarnett/bob-design-uat/issues/1  
+**Chair:** Bob only for human UAT stamp and MRB merge policy (`bob-hostile-mrb`).
+
+## LOCKED (Simon #agentic_irc — Bob UAT design skill)
+
+| ID | Requirement |
+|----|-------------|
+| L1 | Skill path: `.grok/skills/design-uat/SKILL.md` with YAML `name: design-uat`. |
+| L2 | Triggers: visual UAT, design UAT, screenshot/mockup review, pixel-perfect UI, spelling on images, design nits, `/design-uat`. |
+| L3 | Inputs: **brief** (issue, spec, FR md, yaml excerpt, or supplied PDF) plus **artifacts** (PNG/JPG/WebP, Figma exports, PDF pages as images). |
+| L4 | **Three visual gates** (issues #2, #6–#8): **G1** OCR spelling vs brief/glossary; **G2** layout-delta vs brief (px/hex, pixel-perfect enumeration); **G3** invented chrome/copy/imagery not in brief = hallucination. Also apply layout/contrast/a11y nits and brief fidelity (missing/extra states) under G2/G3 as applicable. |
+| L5 | Output: structured report from `docs/templates/design-uat-report.md` plus gate-tagged nit rows (`G1`\|`G2`\|`G3`). Verdict section is **evidence only** — no `ready for human UAT`. |
+| L6 | Workers: `FAIL`, `PASS-nits candidate`, or `candidate PASS-UAT, Bob stamp required` only. **Bob** stamps ready for human UAT. |
+| L7 | No secrets in git. Do not commit `password=` or API key **assignments** (instructional warnings OK). |
+| L8 | Repo docs: this file, `docs/feature-request-design-uat-skill-2026-09-22.md`, `docs/build-and-test-plan.md`. |
+| L9 | `tools/Validate-DesignUatSkill.ps1` exits 0 when structure checks pass (BT0). |
+
+## MUST NOT
+
+| ID | Rule |
+|----|------|
+| N1 | Push `main` or merge own PR. |
+| N2 | Post `ready for human UAT` or final `PASS-UAT` (Bob only). |
+| N3 | Invent product requirements not in the brief. |
+
+## UNKNOWN
+
+| ID | Item |
+|----|------|
+| U1 | OCR engine / language packs (Phase 0: agent vision + report). |
+| U2 | Figma API integration. |
+| U3 | G2 tolerance if Simon waives strict pixel-perfect. |
+| U4 | Brief glossary format. |
+
+## Acceptance IDs
+
+| ID | Acceptance |
+|----|------------|
+| A1 | Skill lists G1–G3 procedure and L6 verdict rules. |
+| A2 | Report template exists and matches skill output. |
+| A3 | Validator passes on repo tree (BT0). |
+| A4 | Build-and-test plan documents BT0–BT2 and fixture phases P1–P2. |
+| A5 | Feature-request doc links issue #1 and maps MUSTs to A1–A4. |
+
+## Related GitHub FRs
+
+#1 skill (MRB home), #3 golden fixtures, #5 adversarial fixtures, #6 G1 spelling, #7 G3 hallucination, #8 G2 pixel deltas.
+
+## Phase order
+
+| Phase | Deliverable |
+|-------|-------------|
+| P0 | Docs, skill, template, validator, build plan (this PR) |
+| P1 | Golden fixture pack (#3) |
+| P2 | Adversarial fixtures + clean control (#5) |

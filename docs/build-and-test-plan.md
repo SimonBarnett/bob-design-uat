@@ -1,0 +1,87 @@
+# Build and test plan: design-uat skill
+
+**Date:** 2026-09-22  
+**Repo:** SimonBarnett/bob-design-uat  
+**FR:** docs/feature-request-design-uat-skill-2026-09-22.md  
+**Issue:** https://github.com/SimonBarnett/bob-design-uat/issues/1  
+
+## Goals
+
+1. Ship P0: skill, functional spec, FR, report template, validator, this plan (issue #1).
+2. Later: golden (#3) and adversarial (#5) fixture packs with expected nit YAML.
+3. Keep gates G1–G3 repeatable; Bob chairs MRB on #1.
+
+## Non-goals
+
+- Ready for human UAT stamp (Bob only).
+- Push/merge `main` from workers.
+- Secret assignments in git.
+
+## Locked constants
+
+| Name | Value |
+|------|--------|
+| MRB issue | #1 |
+| Skill | `.grok/skills/design-uat/SKILL.md` |
+| Gates | G1 spelling, G2 layout-delta, G3 invented chrome |
+| Clean control | Zero nits (#5) |
+
+## BT0 — Structure (required before MRB)
+
+From repo root:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\Validate-DesignUatSkill.ps1
+```
+
+**Pass:** exit code `0`. **Evidence:** paste output into PR or MRB comment. Satisfies **A3**.
+
+## BT1 — Skill walkthrough (manual)
+
+1. Open `.grok/skills/design-uat/SKILL.md`.
+2. Confirm G1 → G2 → G3 procedure and brief-first intake.
+3. Confirm L6/N2: no worker `ready for human UAT`.
+
+**Pass:** MRB agrees **A1**.
+
+## BT2 — Sample report (manual)
+
+1. Copy `docs/templates/design-uat-report.md` outside the repo (do not commit filled report).
+2. Fill with a fictional brief + artifact list; tag nits with G1/G2/G3.
+3. Verdict uses only FAIL / PASS-nits candidate / candidate PASS-UAT wording.
+
+**Pass:** **A2**.
+
+## P1 — Golden fixtures (issue #3, follow-on PR)
+
+Tree: `fixtures/golden/<case>/` with `brief.md`, screenshot, `expected-nits.yaml`.
+
+| Test | Expected |
+|------|----------|
+| T-G01 | Misspelling case → G1 nit |
+| T-G02 | Layout case → G2 nit with px/hex |
+| T-G03 | Hallucination → G3, `NOT_IN_BRIEF` |
+
+## P2 — Adversarial pack (issue #5, follow-on PR)
+
+4–6 bad PNGs + one clean control; each bad case has expected nit class in yaml.
+
+| Test | Expected |
+|------|----------|
+| T-A01..A06 | Bad images fail expected class |
+| T-A00 | Clean control → zero nits |
+
+## Definition of done (P0 / issue #1)
+
+- [ ] BT0 green on PR branch
+- [ ] PR title includes `#1`
+- [ ] Test summary on PR (BT0 output + BT1 checklist)
+- [ ] No UAT stamp in PR body
+- [ ] Bob chairs MRB on #1
+
+## Kickoff (`Start-BobBuild -Goal`)
+
+Read `docs/functional-spec.md`, `docs/feature-request-design-uat-skill-2026-09-22.md`, and
+`docs/build-and-test-plan.md`. Implement next open phase (P1 if P0 merged). Open a PR for #1.
+Never push main. Never merge. Do not stamp UAT. Do not set an API key environment variable.
+PR model: composer-2.5 (or build0.1 / grok-4.5). Never Other Models.
