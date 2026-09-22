@@ -1,0 +1,13 @@
+name: BT0 design-uat
+on:
+  push:
+  pull_request:
+jobs:
+  validate:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate-DesignUatSkill
+        shell: pwsh
+        run: |
+          pwsh -NoProfile -ExecutionPolicy Bypass -File .\tools\Validate-DesignUatSkill.ps1
