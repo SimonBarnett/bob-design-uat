@@ -16,9 +16,16 @@ New repo for a design skill. Bob will use this for UAT. Need to examine images f
 
 When the repo exists, anyone can FR it.
 
-## Gap vs this tree (seed)
+## Gap vs tree (P0)
 
-Empty origin/main at park time. This commit is the seed so later FRs have a base. It does **not** implement #2/#3/#6/#7/#8.
+| Area | Before | After P0 |
+|------|--------|----------|
+| Skill | Missing | `.grok/skills/design-uat/SKILL.md` with G1–G3 |
+| Validator | Missing | `tools/Validate-DesignUatSkill.ps1` (BT0) |
+| Reports | Ad hoc | `docs/templates/design-uat-report.md` |
+| Fixtures | — | P1 (#3) / P2 (#5) follow-on PRs |
+
+P0 does **not** ship golden/adversarial fixture packs (#3, #5).
 
 ## Locked
 
@@ -27,7 +34,18 @@ Empty origin/main at park time. This commit is the seed so later FRs have a base
 - No secrets in git. No live PINs/PSKs.
 - Do not second-create this repo.
 
+## Traceability (issue #1 → acceptance)
+
+| FR MUST | Spec | Acceptance |
+|---------|------|------------|
+| G1–G3 visual gates | L4 | A1 |
+| Report + gate tags | L5 | A2 |
+| BT0 validator | L9 | A3 |
+| Build plan BT0–BT2 | L8 | A4 |
+| This doc + issue #1 | L8 | A5 |
+
 ## Unknown
 
-- Golden fixture pack lives in #3 (not this seed).
-- Exact OCR / layout-delta tooling is #2 and later FRs.
+- Golden fixture pack: #3 (P1).
+- Adversarial pack: #5 (P2).
+- OCR engine details: U1 in functional spec.

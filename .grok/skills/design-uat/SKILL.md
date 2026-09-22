@@ -4,60 +4,72 @@ description: >
   Bob visual UAT of product UI. Examine screenshots and mocks against the
   original brief for spelling mistakes, hallucinations, UI fuck-ups,
   pixel-perfect layout, and brief nits. Use when Bob says UAT, visual UAT,
-  screenshot review, mock vs brief, spelling-in-image, hallucination
-  inventory, pixel-perfect, or pick nits on a design. Do not stamp human UAT
+  screenshot review, mock vs brief, spelling-in-image, G1 G2 G3 gates,
+  pixel-perfect, or /design-uat. Workers do not stamp ready for human UAT
   (Bob only).
 ---
 
 # Design UAT
 
-Read the original brief first. Then look at every supplied image. Report defects. Do not praise. Do not stamp ready-for-human-UAT.
+Read the original brief first. Then inspect every supplied image. Report defects with gate tags **G1**, **G2**, **G3**. Do not praise.
+
+**MRB for this skill repo:** `SimonBarnett/bob-design-uat` issue #1. Product PRs use that product's FR + `bob-hostile-mrb`.
 
 ## Inputs
 
-- Brief: issue, `docs/*.md`, or the FR the worker is UAT-ing.
-- Images: screenshots, mocks, or renders the worker already has. Do not invent image bytes.
-- Optional reference mock for pixel-perfect compare.
+- **Brief:** issue, `docs/*.md`, FR markdown, or operator paste. Brief wins.
+- **Artifacts:** PNG/JPG/WebP, Figma exports, PDF pages as images. Do not invent pixels.
+- **Optional:** reference mock for pixel-perfect **G2**.
 
 ## Procedure
 
-1. Extract required copy, layout regions, CTAs, and named objects from the brief.
-2. Run the five gates below on each image.
-3. Emit a nit list. Empty list means no defect found, not a UAT stamp.
+1. Inventory artifacts and map each to brief sections (screens, states, breakpoints).
+2. Run **G1 → G2 → G3** on each image (plus brief-fidelity rows where a state is missing).
+3. Emit nit list using `docs/templates/design-uat-report.md`. Empty nits means no defect found — not a UAT stamp.
 
-## Gates
+## G1 — Spelling-in-image (OCR / vision)
 
-### 1. Spelling-in-image
+Visible words must match the brief and ordinary spelling. Fail on typos, wrong product names, missing letters, lorem left in place, inconsistent casing when brief is explicit.
 
-Visible words must match the brief and ordinary spelling. Fail on typos, missing letters, and product names the brief did not use.
+## G2 — Layout-delta / pixel-perfect
 
-### 2. Hallucination / invented chrome
+Compare regions, spacing, alignment, sizes, and colors to the brief or supplied mock. Report deltas in px or hex when visible. "Looks close" is not a pass when brief demands pixel-perfect. Include contrast, clipping, overflow, and broken grids here.
 
-Fail if the image shows controls, brands, nav, data, or copy the brief did not ask for.
+## G3 — Hallucination / invented chrome
 
-### 3. UI fuck-ups
+Fail on controls, brands, nav items, data, imagery, or copy the brief did not authorize. Tag `NOT_IN_BRIEF` when the invention is obvious.
 
-Fail on overflow, clipped text, unreadable contrast, missing required fields, wrong primary CTA, or empty required regions.
+## Brief nits
 
-### 4. Pixel-perfect / layout-delta
+Review the brief for contradictions, missing acceptance, or copy no UI can satisfy. Tag gate `brief` in the report.
 
-Compare to the brief layout or a supplied mock. Report alignment, spacing, size, and missing/extra regions. "Looks close" is not a pass.
+## Nit row format
 
-### 5. Brief nits
+| Field | Value |
+|-------|--------|
+| gate | G1 \| G2 \| G3 \| brief |
+| where | artifact + region or brief heading |
+| expected | from brief or mock |
+| actual | what you see |
+| severity | blocker \| major \| nit |
 
-Also review the brief itself: contradictions, missing acceptance, and copy the UI cannot satisfy.
+## Verdict (workers)
 
-## Nit format
+Allowed only:
 
-- gate: one of the five names
-- where: image + region or brief heading
-- expected: from the brief or mock
-- actual: what the image or brief shows
-- severity: blocker | major | nit
+- **FAIL** — blockers present.
+- **PASS-nits candidate** — nits only; product PR may go to hostile MRB.
+- **candidate PASS-UAT, Bob stamp required** — all gates green; **Bob** still applies the human UAT stamp.
+
+Bob alone may declare **ready for human UAT**. Workers must not post that phrase as their own stamp or final **PASS-UAT**.
 
 ## Do not
 
-- Stamp human UAT.
-- Second-create this repo or second-take an owner-locked FR.
-- Commit secrets, live PINs, or customer PII.
-- Treat Halloy as a fleet nick. Halloy is Simon's client.
+- Push `main` or merge your own PR.
+- Second-create this repo or re-take owner-locked FRs.
+- Commit secrets or `password=` / API key assignments.
+- Treat Halloy as a fleet nick (Simon client).
+
+## Repo self-check
+
+When changing this skill repo, run `tools/Validate-DesignUatSkill.ps1` (BT0).

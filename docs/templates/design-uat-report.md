@@ -12,25 +12,23 @@
 |---|----------|---------------|-------|
 | 1 | | | |
 
-## Spelling and copy
+## Nit list (G1 | G2 | G3 | brief)
 
-| Location | Text seen | Expected / issue | Severity |
-|----------|-----------|------------------|----------|
-| | | | |
+| gate | where | expected | actual | severity |
+|------|-------|----------|--------|----------|
+| | | | | |
 
-## Hallucinations and factual UI errors
+### G1 — Spelling-in-image
 
-(Controls, labels, numbers, or flows that contradict the brief or reality.)
+(Summary or extra rows if needed.)
 
-| Location | Finding | Brief reference | Severity |
-|----------|---------|-----------------|----------|
-| | | | |
+### G2 — Layout-delta / pixel-perfect
 
-## Layout, pixel, and visual nits
+(Summary or extra rows if needed.)
 
-| Location | Finding | Expected | Severity |
-|----------|---------|----------|----------|
-| | | | |
+### G3 — Hallucination / invented chrome
+
+(Summary or extra rows if needed.)
 
 ## Brief fidelity
 
@@ -44,7 +42,7 @@ Choose one:
 
 - **FAIL** — blockers listed above; not ready for MRB PASS-nits on product PR.
 - **PASS-nits candidate** — no blockers; cosmetic nits only; product PR may proceed to hostile MRB.
-- **candidate PASS-UAT, Bob stamp required** — all checklist items green; **Bob** must still stamp ready for human UAT.
+- **candidate PASS-UAT, Bob stamp required** — all gates green; **Bob** must still stamp ready for human UAT.
 
 **Blockers:**  
 **Nits:**  
