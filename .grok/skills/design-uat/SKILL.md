@@ -5,8 +5,9 @@ description: >
   original brief for spelling mistakes, hallucinations, UI fuck-ups,
   pixel-perfect layout, and brief nits. Use when Bob says UAT, visual UAT,
   screenshot review, mock vs brief, spelling-in-image, G1 G2 G3 gates,
-  pixel-perfect, or /design-uat. Workers do not stamp ready for human UAT
-  (Bob only).
+  pixel-perfect, PDF, Illustrator, SVG/graphics, or /design-uat. Workers
+  do not stamp ready for human UAT (Bob only). Sibling skills: `pdf-uat`,
+  `illustrator-uat`, `graphics-uat`.
 ---
 
 # Design UAT
@@ -17,8 +18,8 @@ Read the original brief first. Then inspect every supplied image. Report defects
 
 ## Inputs
 
-- **Brief:** issue, `docs/*.md`, FR markdown, or operator paste. Brief wins.
-- **Artifacts:** PNG/JPG/WebP, Figma exports, PDF pages as images. Do not invent pixels.
+- **Brief:** issue, `docs/*.md`, FR markdown, operator paste, or a **PDF** brief. Brief wins.
+- **Artifacts:** PNG/JPG/WebP; **PDF** (text layer for G1, rasterize pages for G2/G3 — skill `pdf-uat`); **Illustrator `.ai` / AI PDF** (proof export first — skill `illustrator-uat`); **SVG / still graphics** (skill `graphics-uat`); Figma exports. Do not invent pixels or artboards.
 - **Optional:** reference mock for pixel-perfect **G2**.
 
 ## Procedure

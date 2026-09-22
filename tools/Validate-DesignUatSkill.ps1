@@ -11,6 +11,11 @@ function Require-File($rel) {
 }
 
 Require-File '.grok\skills\design-uat\SKILL.md'
+Require-File '.grok\skills\pdf-uat\SKILL.md'
+Require-File '.grok\skills\illustrator-uat\SKILL.md'
+Require-File '.grok\skills\graphics-uat\SKILL.md'
+Require-File 'docs\feature-request-harvest-pdf-illustrator-graphics-2026-09-22.md'
+Require-File 'docs\fixtures\g1-svg-misspell.svg'
 Require-File 'docs\functional-spec.md'
 Require-File 'docs\feature-request-design-uat-skill-2026-09-22.md'
 Require-File 'docs\build-and-test-plan.md'
@@ -23,7 +28,8 @@ $skill = Get-Content (Join-Path $root '.grok\skills\design-uat\SKILL.md') -Raw
 foreach ($needle in @(
         'name: design-uat', 'G1', 'G2', 'G3', 'ready for human UAT',
         'Severity rubric', 'Per-image walk',
-        'Fail-closed', 'delta_px', 'Inventory'
+        'Fail-closed', 'delta_px', 'Inventory',
+        'pdf-uat', 'illustrator-uat', 'graphics-uat'
     )) {
     if ($skill -notmatch [regex]::Escape($needle)) {
         Write-Error "SKILL.md missing expected text: $needle"
