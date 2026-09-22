@@ -20,7 +20,7 @@ Require-File '.github\workflows\bt0.yml'
 Require-File 'tools\Install-DesignUatSkill.ps1'
 
 $skill = Get-Content (Join-Path $root '.grok\skills\design-uat\SKILL.md') -Raw
-foreach ($needle in @('name: design-uat', 'G1', 'G2', 'G3', 'ready for human UAT', 'Severity rubric', 'Per-image walk')) {
+foreach ($needle in @('name: design-uat', 'G1', 'G2', 'G3', 'ready for human UAT', 'Severity rubric', 'Per-image walk', 'Brief glossary', 'Gate scorecard', 'Examples (text only)')) {
     if ($skill -notmatch [regex]::Escape($needle)) {
         Write-Error "SKILL.md missing expected text: $needle"
         exit 1
@@ -45,6 +45,14 @@ foreach ($rel in $scanFiles) {
             Write-Error "Forbidden secret assignment pattern in ${rel}: $pat"
             exit 1
         }
+    }
+}
+
+$report = Get-Content (Join-Path $root 'docs\templates\design-uat-report.md') -Raw
+foreach ($needle in @('Gate scorecard', 'G1', 'G2', 'G3')) {
+    if ($report -notmatch [regex]::Escape($needle)) {
+        Write-Error "design-uat-report.md missing expected text: $needle"
+        exit 1
     }
 }
 

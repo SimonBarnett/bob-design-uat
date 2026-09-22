@@ -30,6 +30,15 @@
 
 (Summary or extra rows if needed.)
 
+## Gate scorecard
+
+| Gate | Result (fail / nits / clear) | Counts (blocker / major / nit) |
+|------|------------------------------|--------------------------------|
+| G1 | | |
+| G2 | | |
+| G3 | | |
+| brief | | |
+
 ## Brief fidelity
 
 | Requirement | Status | Evidence |

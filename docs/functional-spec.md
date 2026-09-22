@@ -35,7 +35,7 @@
 | U1 | OCR engine / language packs (Phase 0: agent vision + report). |
 | U2 | Figma API integration. |
 | U3 | G2 tolerance if Simon waives strict pixel-perfect. |
-| U4 | Brief glossary format. |
+| U4 | ~~Brief glossary format.~~ **LOCKED:** token / phrase / region / optional table in brief or `docs/glossary.md`. |
 
 ## Acceptance IDs
 

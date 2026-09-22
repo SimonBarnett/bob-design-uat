@@ -58,6 +58,41 @@ On each artifact, in order:
 
 A single blocker forces verdict **FAIL**. Majors without blockers are still **FAIL** if they break the task; otherwise **PASS-nits candidate**. Zero defects is **candidate PASS-UAT, Bob stamp required** — not a UAT stamp.
 
+## Brief glossary (U4 locked)
+
+Extract a glossary before G1. Prefer `docs/glossary.md` or a `## Glossary` table in the brief. Else build one from LOCKED names in the spec.
+
+| Field | Meaning |
+|-------|---------|
+| token | kebab-case id (`primary_cta`, `brand`) |
+| phrase | exact visible string |
+| region | brief region the phrase belongs to |
+| optional | true if missing is a nit, not a blocker |
+
+G1 compares transcribed image text to `phrase`. Unknown extra words that are not glossary tokens go to G3 (`NOT_IN_BRIEF`) unless they are ordinary chrome the brief waived.
+
+## Gate scorecard
+
+Fill the report scorecard before the verdict. Each gate is **fail** (blocker or task-breaking major), **nits** (nit-only), or **clear**.
+
+| Gate | fail | nits | clear |
+|------|------|------|-------|
+| G1 | any blocker spelling | casing/minor only | no G1 rows |
+| G2 | missing required region, contrast, 8px+ | 1–2px | no G2 rows |
+| G3 | invented primary chrome | decorative extra | no G3 rows |
+| brief | contradiction | missing optional acceptance | no brief rows |
+
+Verdict follows the worst cell: any **fail** → FAIL; only **nits** → PASS-nits candidate; all **clear** → candidate PASS-UAT, Bob stamp required.
+
+## Examples (text only)
+
+- G1 fail: brief phrase `Book a table`, image shows `Bok a table` → blocker.
+- G2 nits: mock primary button 16px below header, image 18px → nit, not FAIL.
+- G3 fail: brief nav is Home/Book; image adds Admin → blocker `NOT_IN_BRIEF`.
+- brief fail: brief says primary CTA is both `Book` and `Buy` with no winner.
+
+Do not invent fixture PNGs here. Golden/adversarial images are #3/#5.
+
 ## Brief nits
 
 Review the brief for contradictions, missing acceptance, or copy no UI can satisfy. Tag gate `brief` in the report.
