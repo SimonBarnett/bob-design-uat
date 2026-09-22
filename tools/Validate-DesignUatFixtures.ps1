@@ -24,6 +24,27 @@ function Get-NitBlocks([string]$text) {
     return $text.Substring($idx)
 }
 
+function Test-G2Deltas([string]$nitBlock, [string]$fixtureId) {
+    $rows = [regex]::Matches($nitBlock, '(?ms)^\s+-\s+gate:\s+G2\s*$(.*?)(?=^\s+-\s+gate:|\z)')
+    foreach ($m in $rows) {
+        $chunk = $m.Value
+        if ($chunk -notmatch 'delta_px:' -and $chunk -notmatch 'delta_hex:') {
+            Write-Error "fixtures/$fixtureId G2 row missing delta_px and/or delta_hex"
+            exit 1
+        }
+    }
+}
+
+function Test-G1Blockers([string]$nitBlock, [string]$fixtureId) {
+    $rows = [regex]::Matches($nitBlock, '(?ms)^\s+-\s+gate:\s+G1\s*$(.*?)(?=^\s+-\s+gate:|\z)')
+    foreach ($m in $rows) {
+        if ($m.Value -notmatch 'severity:\s+blocker') {
+            Write-Error "fixtures/$fixtureId G1 row must use severity: blocker"
+            exit 1
+        }
+    }
+}
+
 foreach ($id in $required) {
     $dir = Join-Path $fixRoot $id
     foreach ($rel in @('brief.md', 'screenshot.png', 'expected-nits.yaml')) {
@@ -40,10 +61,18 @@ foreach ($id in $required) {
         Write-Error "fixtures/$id/expected-nits.yaml case=$case expected $id"
         exit 1
     }
+    if ($yaml -notmatch '(?m)^inventory:') {
+        Write-Error "fixtures/$id/expected-nits.yaml must declare inventory:"
+        exit 1
+    }
     $nits = Get-NitBlocks $yaml
     if ($id -eq 'T-A00-clean') {
         if ($nits -notmatch 'nits:\s*\[\s*\]') {
             Write-Error "T-A00-clean must have nits: []"
+            exit 1
+        }
+        if ($yaml -notmatch 'inventory:\s*\[\s*\]') {
+            Write-Error "T-A00-clean must have inventory: []"
             exit 1
         }
         continue
@@ -52,6 +81,8 @@ foreach ($id in $required) {
         Write-Error "fixtures/$id expected at least one nit with gate G1|G2|G3|brief"
         exit 1
     }
+    Test-G1Blockers $nits $id
+    Test-G2Deltas $nits $id
 }
 
 $g01 = Get-Content (Join-Path $fixRoot 'T-G01-spelling\expected-nits.yaml') -Raw

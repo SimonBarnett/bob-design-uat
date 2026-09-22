@@ -9,6 +9,15 @@ nits:
     expected: '#0A5C3A'
     actual: '#FF0000'
     severity: blocker
+    delta_hex: '#0A5C3A->#FF0000'
+  - gate: G2
+    class: hex
+    brief_field: brand.hex
+    where: screenshot.png CTA fill
+    expected: '#0A5C3A'
+    actual: '#FF0000'
+    severity: blocker
+    delta_hex: '#0A5C3A->#FF0000'
   - gate: G2
     class: layout
     brief_field: cta.pad_left
@@ -16,3 +25,14 @@ nits:
     expected: 24px
     actual: 8px
     severity: major
+    delta_px: 16
+inventory:
+  - item: Club Madeira
+    kind: chrome
+    in_brief: yes
+  - item: Episode 01
+    kind: copy
+    in_brief: yes
+  - item: Start campaign
+    kind: copy
+    in_brief: yes
