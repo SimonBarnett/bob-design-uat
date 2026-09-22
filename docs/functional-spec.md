@@ -59,10 +59,11 @@
 | `pdf-design` | PDF / print page stack |
 | `illustrator-design` | Illustrator artboards / exports |
 | `graphics-design` | Loose graphics packs (PNG/SVG/icons) |
+| `playwright-design` | Playwright capture of authorized routes/viewports/states → PNG, then G1–G3 (#57) |
 
 ## Related GitHub FRs
 
-#1 skill (MRB home), #3 golden fixtures, #5 adversarial fixtures, #6 G1 spelling, #7 G3 hallucination, #8 G2 pixel deltas; PDF/Illustrator/graphics companions FR (`docs/feature-request-pdf-illustrator-graphics-skills-2026-09-22.md`).
+#1 skill (MRB home), #3 golden fixtures, #5 adversarial fixtures, #6 G1 spelling, #7 G3 hallucination, #8 G2 pixel deltas; PDF/Illustrator/graphics companions FR (`docs/feature-request-pdf-illustrator-graphics-skills-2026-09-22.md`); Playwright visual capture FR (`docs/feature-request-playwright-visual-uat-2026-09-22.md`, #57).
 
 ## Phase order
 
