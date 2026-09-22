@@ -12,7 +12,7 @@
 | L1 | Skill path: `.grok/skills/design-uat/SKILL.md` with YAML `name: design-uat`. |
 | L2 | Triggers: visual UAT, design UAT, screenshot/mockup review, pixel-perfect UI, spelling on images, design nits, `/design-uat`. |
 | L3 | Inputs: **brief** (issue, spec, FR md, yaml excerpt, or supplied PDF) plus **artifacts** (PNG/JPG/WebP, Figma exports, PDF pages as images). |
-| L4 | **Three visual gates** (issues #2, #6–#8): **G1** OCR spelling vs brief/glossary; **G2** layout-delta vs brief (px/hex, pixel-perfect enumeration); **G3** invented chrome/copy/imagery not in brief = hallucination. Also apply layout/contrast/a11y nits and brief fidelity (missing/extra states) under G2/G3 as applicable. |
+| L4 | **Three visual gates** (issues #2, #6–#8): **G1** OCR spelling vs brief/glossary; **G2** layout-delta vs brief (px/hex, pixel-perfect enumeration, overlapping-element detection when brief requires non-intersecting regions — #71); **G3** invented chrome/copy/imagery not in brief = hallucination. Also apply layout/contrast/a11y nits and brief fidelity (missing/extra states) under G2/G3 as applicable. |
 | L5 | Output: structured report from `docs/templates/design-uat-report.md` plus gate-tagged nit rows (`G1`\|`G2`\|`G3`). Verdict section is **evidence only** — no `ready for human UAT`. |
 | L6 | Workers: `FAIL`, `PASS-nits candidate`, or `candidate PASS-UAT, Bob stamp required` only. **Bob** stamps ready for human UAT. |
 | L7 | No secrets in git. Do not commit `password=` or API key **assignments** (instructional warnings OK). |
@@ -59,12 +59,12 @@
 | `pdf-design` | PDF / print page stack |
 | `illustrator-design` | Illustrator artboards / exports |
 | `graphics-design` | Loose graphics packs (PNG/SVG/icons) |
-| `playwright-design` | Playwright capture of authorized routes/viewports/states → PNG, then G1–G3 (#57) |
+| `playwright-design` | Playwright capture of authorized routes/viewports/states → PNG, optional bbox overlap pass (#71), then G1–G3 (#57) |
 | `mrb-project-management` | Engineering MRB PM for this repo (issue #49); hostile verdict on `agentic_build` |
 
 ## Related GitHub FRs
 
-#1 skill (MRB home), #3 golden fixtures, #5 adversarial fixtures, #6 G1 spelling, #7 G3 hallucination, #8 G2 pixel deltas; PDF/Illustrator/graphics companions FR (`docs/feature-request-pdf-illustrator-graphics-skills-2026-09-22.md`); Playwright visual capture FR (`docs/feature-request-playwright-visual-uat-2026-09-22.md`, #57); MRB PM harvest (#49, `docs/feature-request-mrb-project-management-harvest-2026-09-22.md`).
+#1 skill (MRB home), #3 golden fixtures, #5 adversarial fixtures, #6 G1 spelling, #7 G3 hallucination, #8 G2 pixel deltas; PDF/Illustrator/graphics companions FR (`docs/feature-request-pdf-illustrator-graphics-skills-2026-09-22.md`); Playwright visual capture FR (`docs/feature-request-playwright-visual-uat-2026-09-22.md`, #57); screen layout overlap FR (`docs/feature-request-screen-layout-overlap-2026-09-22.md`, #71); MRB PM harvest (#49, `docs/feature-request-mrb-project-management-harvest-2026-09-22.md`).
 
 ## Phase order
 

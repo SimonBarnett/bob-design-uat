@@ -6,6 +6,7 @@ $fixRoot = Join-Path $root 'fixtures'
 $required = @(
     'T-G01-spelling',
     'T-G02-layout',
+    'T-G04-overlap',
     'T-G03-hallucination',
     'T-A00-clean',
     'T-A01-wrong-hex',
@@ -93,6 +94,11 @@ if ($g01 -notmatch 'gate:\s+G1' -or $g01 -notmatch 'class:\s+spelling') {
 $g02 = Get-Content (Join-Path $fixRoot 'T-G02-layout\expected-nits.yaml') -Raw
 if ($g02 -notmatch 'gate:\s+G2' -or $g02 -notmatch '24px' -or $g02 -notmatch '#0A5C3A') {
     Write-Error 'T-G02-layout must declare G2 px/hex vs brief'
+    exit 1
+}
+$g04 = Get-Content (Join-Path $fixRoot 'T-G04-overlap\expected-nits.yaml') -Raw
+if ($g04 -notmatch 'gate:\s+G2' -or $g04 -notmatch 'overlap' -or $g04 -notmatch 'delta_px:') {
+    Write-Error 'T-G04-overlap must declare G2 overlap with delta_px'
     exit 1
 }
 $g03 = Get-Content (Join-Path $fixRoot 'T-G03-hallucination\expected-nits.yaml') -Raw

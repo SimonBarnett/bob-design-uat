@@ -13,11 +13,21 @@ flags overlapping UI elements (bbox intersection / axe-adjacent layout checks).
 Playwright visual UAT exists; overlap/layout collision check is not an
 explicit MUST in companion skills.
 
+## MUST
+
+1. Document G2 overlap procedure in `design-uat` and `playwright-design` skills (#71).
+2. Ship calibration fixture `fixtures/T-G04-overlap/` and example hook `tools/LayoutOverlap-PlaywrightHook.example.mjs` (no secrets).
+3. BT0 requires FR doc, overlap needles, and fixture validator row for T-G04.
+4. README + `docs/functional-spec.md` link this FR.
+5. MUST NOT stamp ready for human UAT. Bob chairs MRB on #71.
+
 ## Acceptance
 
-- A1: Documented procedure or skill gate for overlapping-element detection.
-- A2: Example fixture or test hook referenced (no secrets).
-- A3: Links from README / companion skill index.
-- A4: Existing BT0/visual paths remain green or explicitly stubbed UNKNOWN.
+| ID | Check |
+|----|--------|
+| A1 | Documented procedure or skill gate for overlapping-element detection. |
+| A2 | Example fixture or test hook referenced (no secrets). |
+| A3 | Links from README / companion skill index. |
+| A4 | Existing BT0/visual paths remain green or explicitly stubbed UNKNOWN. |
 
 Workers do not stamp ready for human UAT.

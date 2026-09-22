@@ -34,6 +34,7 @@ Clean control (`T-A00-clean`) has `nits: []`.
 |----|------|----------|
 | T-G01-spelling | G1 | misspelled CTA |
 | T-G02-layout | G2 | bar hex + CTA x pad vs brief |
+| T-G04-overlap | G2 | title vs CTA bbox intersection (`fixtures/T-G04-overlap/`) |
 | T-G03-hallucination | G3 | Admin / ACME not in brief (`NOT_IN_BRIEF`) |
 | T-A01-wrong-hex | G2 | brand hex mismatch |
 | T-A02-1px | G2 | CTA x=23 vs 24 |

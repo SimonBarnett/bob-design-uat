@@ -54,6 +54,29 @@ Write-UiPng 'fixtures/T-A02-1px' 'Episode 01' 'Start campaign' 'Club Madeira' '#
 # T-A03: invented logo wordmark
 Write-UiPng 'fixtures/T-A03-invented-logo' 'Episode 01' 'Start campaign' 'Club Madeira  |  NITSA UK' '#0A5C3A'
 
+# T-G04: overlap — CTA drawn over title (violates brief no-intersection)
+function Write-OverlapPng {
+    $dir = Join-Path $root 'fixtures/T-G04-overlap'
+    if (-not (Test-Path $dir)) { New-Item -ItemType Directory -Path $dir | Out-Null }
+    $path = Join-Path $dir 'screenshot.png'
+    $bmp = New-Object System.Drawing.Bitmap 480, 160
+    $g = [System.Drawing.Graphics]::FromImage($bmp)
+    $g.Clear([System.Drawing.Color]::FromArgb(255, 248, 248, 246))
+    $bar = [System.Drawing.ColorTranslator]::FromHtml('#0A5C3A')
+    $g.FillRectangle((New-Object System.Drawing.SolidBrush $bar), 0, 0, 480, 36)
+    $white = [System.Drawing.Brushes]::White
+    $ink = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(255, 24, 24, 24))
+    $g.DrawString('Club Madeira', $small, $white, 12, 8)
+    $g.DrawString('Episode 01', $font, $ink, 16, 52)
+    $g.FillRectangle((New-Object System.Drawing.SolidBrush $bar), 24, 48, 180, 44)
+    $g.DrawString('Start campaign', $small, $white, 36, 58)
+    $g.Dispose()
+    $bmp.Save($path, [System.Drawing.Imaging.ImageFormat]::Png)
+    $bmp.Dispose()
+    Write-Output $path
+}
+Write-OverlapPng
+
 # T-A00: clean control — matches brief
 Write-UiPng 'fixtures/T-A00-clean' 'Episode 01' 'Start campaign' 'Club Madeira' '#0A5C3A' -CtaPadLeft 24
 
