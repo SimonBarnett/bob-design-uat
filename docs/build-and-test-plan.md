@@ -110,6 +110,18 @@ Do not second-take. 23624 lock.
 - [ ] No UAT stamp in PR body
 - [ ] Bob chairs MRB on #7 (fixture proof T-G03 stays on #3)
 
+## Definition of done (issue #2 — three gates)
+
+**FR:** `docs/feature-request-three-gates-2026-09-22.md`  
+**Issue:** https://github.com/SimonBarnett/bob-design-uat/issues/2  
+
+- [ ] BT0 green on PR branch (includes three-gates FR file)
+- [ ] Skill: fail-closed **G1 → G2 → G3**; per-gate PASS/FAIL in report body
+- [ ] Report template: gate scorecard section
+- [ ] PR title includes `#2`
+- [ ] No UAT stamp in PR body
+- [ ] Bob chairs MRB on #2
+
 ## Kickoff (`Start-BobBuild -Goal`)
 
 Read `docs/functional-spec.md`, `docs/feature-request-design-uat-skill-2026-09-22.md`, and
