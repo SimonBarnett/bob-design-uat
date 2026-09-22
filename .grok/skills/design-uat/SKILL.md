@@ -32,30 +32,36 @@ Read the original brief first. Then inspect every supplied image. Report defects
 
 Visible words must match the brief and ordinary spelling. Fail on typos, wrong product names, missing letters, lorem left in place, inconsistent casing when brief is explicit. **Never approve spelling you did not read** (OCR the pack if it is large). Unread visible text is FAIL.
 
+**Fail-closed (#6):** any G1 typo in chrome, labels, body copy, or product names (vs the brief or glossary) is a **blocker**, not a cosmetic nit. The check **FAIL**s. Do not downgrade a misspelling to PASS-nits.
+
 ## G2 — Layout-delta / pixel-perfect
 
 Compare regions, spacing, alignment, sizes, and colors to the brief or supplied mock. Report deltas in px or hex when visible. "Looks close" / "close enough" is not a pass. Include contrast, clipping, overflow, and broken grids here. No recorded delta when a drift is claimed is FAIL.
 
+**Deltas (#8):** every G2 row must include at least one of `delta_px` or `delta_hex` in the report and fixture `expected-nits.yaml`. A G2 without a measurement is incomplete.
+
 ## G3 — Hallucination / invented chrome
 
-Fail on controls, brands, nav items, data, imagery, testimonials, extra buttons, prices, or copy the brief did not authorize. Tag `NOT_IN_BRIEF` when the invention is obvious. Perfect pixels do not save invented chrome.
+Fail on controls, brands, nav items, invented buttons, fake stats, extra pages, data, imagery, testimonials, extra buttons, prices, or copy the brief did not authorize. Tag `NOT_IN_BRIEF` when the invention is obvious. Perfect pixels do not save invented chrome.
+
+**Inventory (#7):** list every visible chrome, copy, image, and flow item; mark each `in_brief` (yes) or `NOT_IN_BRIEF`. Missing inventory is incomplete even if no hallucination is found.
 
 ## Per-image walk
 
 On each artifact, in order:
 
-1. **Read every visible word** (G1). Transcribe CTAs, headings, badges, errors, legal lines. Compare to brief glossary. One misspelled product name is a blocker.
-2. **Overlay brief regions** (G2). For each named region in the brief, mark found / missing / wrong size. Measure obvious deltas (px) and color (hex) when a mock exists. Clipped text and contrast fails live here.
-3. **Subtract brief objects** (G3). Anything left on the image that the brief did not authorize is invented chrome. Tag `NOT_IN_BRIEF`.
+1. **Read every visible word** (G1). Transcribe CTAs, headings, badges, errors, legal lines, and labels. Compare to the brief and glossary. Any typo vs the brief or glossary is a G1 **blocker** (not only product names).
+2. **Overlay brief regions** (G2). For each named region in the brief, mark found / missing / wrong size. Measure deltas (px) and color (hex) for every G2 row. Clipped text and contrast fails live here.
+3. **Inventory chrome/copy/images/flows** (G3). List each visible item; mark `in_brief` or `NOT_IN_BRIEF`. Subtract brief objects — anything unauthorized is invented chrome.
 4. **Missing artifact** — if the brief requires a state/breakpoint and no image was supplied, add a G2 or `brief` row. Do not invent pixels to fill the gap.
 
 ## Severity rubric
 
 | Severity | Use when |
 |----------|----------|
-| blocker | Wrong or missing primary CTA; misspelled product/brand name; invented primary nav; required screen/state absent; copy that contradicts the brief. |
+| blocker | Wrong or missing primary CTA; **any G1 typo** (chrome, labels, body copy, product/brand names vs brief or glossary); invented primary nav; required screen/state absent; copy that contradicts the brief. |
 | major | Contrast fail; overflow/clip; 8px+ misalignment vs mock; extra secondary chrome; wrong hex when brief names a token. |
-| nit | 1–2px drift; minor casing when brief is not explicit; decorative extras that do not change the task. |
+| nit | 1–2px drift; decorative extras that do not change the task. (Misspellings vs brief/glossary are G1 blockers, not nits.) |
 
 A single blocker forces verdict **FAIL**. Majors without blockers are still **FAIL** if they break the task; otherwise **PASS-nits candidate**. Zero defects is **candidate PASS-UAT, Bob stamp required** — not a UAT stamp.
 
@@ -72,6 +78,8 @@ Review the brief for contradictions, missing acceptance, or copy no UI can satis
 | expected | from brief or mock |
 | actual | what you see |
 | severity | blocker \| major \| nit |
+| delta_px | G2 only — px delta when measured |
+| delta_hex | G2 only — hex delta when measured |
 
 ## Verdict (workers)
 

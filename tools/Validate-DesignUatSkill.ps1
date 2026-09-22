@@ -13,6 +13,7 @@ function Require-File($rel) {
 Require-File '.grok\skills\design-uat\SKILL.md'
 Require-File 'docs\functional-spec.md'
 Require-File 'docs\feature-request-design-uat-skill-2026-09-22.md'
+Require-File 'docs\feature-request-hallucination-inventory-2026-09-22.md'
 Require-File 'docs\build-and-test-plan.md'
 Require-File 'docs\templates\design-uat-report.md'
 Require-File 'docs\expected-nits.schema.md'
@@ -21,9 +22,33 @@ Require-File 'tools\Install-DesignUatSkill.ps1'
 Require-File 'docs\feature-request-three-gates-2026-09-22.md'
 
 $skill = Get-Content (Join-Path $root '.grok\skills\design-uat\SKILL.md') -Raw
-foreach ($needle in @('name: design-uat', 'G1', 'G2', 'G3', 'OCR', 'ready for human UAT', 'Severity rubric', 'Per-image walk')) {
+foreach ($needle in @(
+        'name: design-uat', 'G1', 'G2', 'G3', 'OCR', 'ready for human UAT',
+        'Severity rubric', 'Per-image walk',
+        'Fail-closed', 'delta_px', 'Inventory', 'NOT_IN_BRIEF',
+        'chrome', 'copy', 'image', 'flow'
+    )) {
     if ($skill -notmatch [regex]::Escape($needle)) {
         Write-Error "SKILL.md missing expected text: $needle"
+        exit 1
+    }
+}
+
+$report = Get-Content (Join-Path $root 'docs\templates\design-uat-report.md') -Raw
+foreach ($needle in @(
+        'G3 inventory (required)', 'in_brief', 'NOT_IN_BRIEF',
+        'chrome / copy / image / flow'
+    )) {
+    if ($report -notmatch [regex]::Escape($needle)) {
+        Write-Error "design-uat-report.md missing T-S07 text: $needle"
+        exit 1
+    }
+}
+
+$schema = Get-Content (Join-Path $root 'docs\expected-nits.schema.md') -Raw
+foreach ($needle in @('delta_px', 'delta_hex', 'inventory', 'NOT_IN_BRIEF', 'fail-closed', 'G3 inventory (#7)')) {
+    if ($schema -notmatch [regex]::Escape($needle)) {
+        Write-Error "expected-nits.schema.md missing expected text: $needle"
         exit 1
     }
 }
@@ -32,7 +57,8 @@ $scanFiles = @(
     'docs\functional-spec.md',
     '.grok\skills\design-uat\SKILL.md',
     'docs\build-and-test-plan.md',
-    'docs\feature-request-design-uat-skill-2026-09-22.md'
+    'docs\feature-request-design-uat-skill-2026-09-22.md',
+    'docs\feature-request-hallucination-inventory-2026-09-22.md'
 )
 $secretPatterns = @(
     '(?i)(?:^|[;\s])(?:password|XAI_API_KEY)\s*=\s*[''"]?[a-zA-Z0-9_./+-]{8,}'

@@ -3,7 +3,8 @@
 **Date:** 2026-09-22  
 **Repo:** SimonBarnett/bob-design-uat  
 **FR:** docs/feature-request-design-uat-skill-2026-09-22.md  
-**Issue:** https://github.com/SimonBarnett/bob-design-uat/issues/1  
+**Issue (#1):** https://github.com/SimonBarnett/bob-design-uat/issues/1  
+**Issue (#7 G3):** https://github.com/SimonBarnett/bob-design-uat/issues/7 — `docs/feature-request-hallucination-inventory-2026-09-22.md`  
 
 ## Goals
 
@@ -60,13 +61,23 @@ Expected nit YAML shape for later fixture PRs: `docs/expected-nits.schema.md`. D
 
 **Pass:** **A2**.
 
-## P1 — Golden fixtures (issue #3, follow-on PR)
+## P0b — Gate schema (issues #6 #7 #8)
 
-Tree: `fixtures/golden/<case>/` with `brief.md`, screenshot, `expected-nits.yaml`.
+`docs/expected-nits.schema.md` plus skill/template rules (satisfies **A7**):
 
 | Test | Expected |
 |------|----------|
-| T-G01 | Misspelling case → G1 nit |
+| T-S06 | G1 typo is blocker / FAIL (fail-closed) |
+| T-S07 | G3 inventory table required (report template + skill `NOT_IN_BRIEF`; BT0 checks) |
+| T-S08 | G2 row has delta_px and/or delta_hex |
+
+## P1 — Golden fixtures (issue #3, follow-on PR)
+
+Tree: `fixtures/golden/<case>/` with `brief.md`, screenshot, `expected-nits.yaml` (schema in `docs/expected-nits.schema.md`).
+
+| Test | Expected |
+|------|----------|
+| T-G01 | Misspelling case → G1 blocker |
 | T-G02 | Layout case → G2 nit with px/hex |
 | T-G03 | Hallucination → G3, `NOT_IN_BRIEF` |
 
@@ -86,6 +97,27 @@ Tree: `fixtures/golden/<case>/` with `brief.md`, screenshot, `expected-nits.yaml
 - [ ] Test summary on PR (BT0 output + BT1 checklist)
 - [ ] No UAT stamp in PR body
 - [ ] Bob chairs MRB on #1
+
+## Definition of done (#7 / T-S07)
+
+- [ ] BT0 green (includes T-S07 report + skill needles)
+- [ ] `docs/feature-request-hallucination-inventory-2026-09-22.md` on branch
+- [ ] PR title includes `#7`
+- [ ] Test summary on PR (BT0 output; T-S07 row)
+- [ ] No UAT stamp in PR body
+- [ ] Bob chairs MRB on #7 (fixture proof T-G03 stays on #3)
+
+## Definition of done (issue #2 — three gates)
+
+**FR:** `docs/feature-request-three-gates-2026-09-22.md`  
+**Issue:** https://github.com/SimonBarnett/bob-design-uat/issues/2  
+
+- [ ] BT0 green on PR branch (includes three-gates FR file)
+- [ ] Skill: fail-closed **G1 → G2 → G3**; per-gate PASS/FAIL in report body
+- [ ] Report template: gate scorecard section
+- [ ] PR title includes `#2`
+- [ ] No UAT stamp in PR body
+- [ ] Bob chairs MRB on #2
 
 ## Kickoff (`Start-BobBuild -Goal`)
 
