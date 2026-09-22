@@ -1,0 +1,30 @@
+case: T-A01-wrong-hex
+brief: brief.md
+artifact: screenshot.png
+nits:
+  - gate: G2
+    class: hex
+    brief_field: brand.hex
+    where: screenshot.png bar
+    expected: '#0A5C3A'
+    actual: '#1122FF'
+    severity: blocker
+    delta_hex: '#0A5C3A->#1122FF'
+  - gate: G2
+    class: hex
+    brief_field: brand.hex
+    where: screenshot.png CTA fill
+    expected: '#0A5C3A'
+    actual: '#1122FF'
+    severity: blocker
+    delta_hex: '#0A5C3A->#1122FF'
+inventory:
+  - item: Club Madeira
+    kind: chrome
+    in_brief: yes
+  - item: Episode 01
+    kind: copy
+    in_brief: yes
+  - item: Start campaign
+    kind: copy
+    in_brief: yes

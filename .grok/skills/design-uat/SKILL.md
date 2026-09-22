@@ -111,6 +111,18 @@ Body must include **G1 / G2 / G3** (PASS or FAIL each). Bob alone may declare **
 - Commit secrets or `password=` / API key assignments.
 - Treat Halloy as a fleet nick (Simon client).
 
+## Fixture pack (#3 + absorbed #5)
+
+Before real UAT, calibrate on `fixtures/`:
+
+1. For each `fixtures/<case>/` read `brief.md` then `screenshot.png`.
+2. Emit nits in the report template (G1/G2/G3 + severity).
+3. Compare to that case's `expected-nits.yaml` (schema in `fixtures/README.md`).
+4. **T-A00-clean** must produce **zero** nits. Bad cases must hit the expected `class` / `gate`.
+5. Output is a nit list only. Do not stamp UAT.
+
+Regenerate stills with `tools/New-GoldenFixturePngs.ps1`. Validate with `tools/Validate-DesignUatFixtures.ps1` (also invoked from BT0).
+
 ## Repo self-check
 
 When changing this skill repo, run `tools/Validate-DesignUatSkill.ps1` (BT0).

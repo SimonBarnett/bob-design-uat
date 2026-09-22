@@ -12,8 +12,10 @@ Do not stamp human UAT here. Bob chairs UAT.
 
 - `docs/functional-spec.md` — locked gates and acceptance
 - `docs/feature-request-design-uat-skill-2026-09-22.md` — parked FR (#1)
+- `docs/feature-request-golden-fixture-pack-2026-09-22.md` — parked FR (#3, absorbs #5)
 - `docs/feature-request-hallucination-inventory-2026-09-22.md` — G3 inventory FR (#7)
 - `docs/build-and-test-plan.md` — how workers prove the skill
+- `fixtures/` — golden + clean-control pack (`expected-nits.yaml`)
 
 ## Self-check
 
@@ -28,7 +30,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\Install-DesignUatSki
 | --- | --- | --- |
 | #1 | P0 merged (46d06aa / PR #9); flamingo keep-building | skill body |
 | #2 | ce-priority-dev1-11904 | three visual gates |
-| #3 | flamingo-24108 spare | golden fixtures |
+| #3 | flamingo-24108 | golden fixtures (+ absorbed #5) |
 | #6 | marchhare-23624 | spelling-in-image |
 | #7 | marchhare-23624 | hallucination inventory |
 | #8 | marchhare-23624 | pixel-perfect deltas |

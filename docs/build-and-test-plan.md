@@ -74,24 +74,27 @@ Expected nit YAML shape for later fixture PRs: `docs/expected-nits.schema.md`. D
 
 **T-S08 evidence:** BT0 checks skill `Deltas (#8)`, schema `G2 deltas (#8)`, and report template `delta_px` / `delta_hex` columns.
 
-## P1 — Golden fixtures (issue #3, follow-on PR)
+## P1 — Golden + absorbed #5 fixtures (issue #3)
 
-Tree: `fixtures/golden/<case>/` with `brief.md`, screenshot, `expected-nits.yaml` (schema in `docs/expected-nits.schema.md`).
+Tree: `fixtures/<case>/` with `brief.md`, `screenshot.png`, `expected-nits.yaml` (schema in `docs/expected-nits.schema.md`).
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\Validate-DesignUatFixtures.ps1
+```
 
 | Test | Expected |
 |------|----------|
-| T-G01 | Misspelling case → G1 blocker |
+| T-G01 | Misspelling case → G1 **blocker** |
 | T-G02 | Layout case → G2 nit with px/hex |
 | T-G03 | Hallucination → G3, `NOT_IN_BRIEF` |
+| T-A01 | Wrong hex → G2 |
+| T-A02 | 1px pad → G2 nit |
+| T-A03 | Invented logo → G3 |
+| T-A00 | Clean control → `nits: []` |
 
-## P2 — Adversarial pack (issue #5, follow-on PR)
+## P2 — Gate-owner FRs (#6 #7 #8)
 
-4–6 bad PNGs + one clean control; each bad case has expected nit class in yaml.
-
-| Test | Expected |
-|------|----------|
-| T-A01..A06 | Bad images fail expected class |
-| T-A00 | Clean control → zero nits |
+Do not second-take. 23624 lock.
 
 ## Definition of done (P0 / issue #1)
 

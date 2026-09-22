@@ -17,6 +17,7 @@ Require-File '.grok\skills\graphics-design\SKILL.md'
 Require-File '.grok\skills\mrb-project-management\SKILL.md'
 Require-File 'docs\functional-spec.md'
 Require-File 'docs\feature-request-design-uat-skill-2026-09-22.md'
+Require-File 'docs\feature-request-golden-fixture-pack-2026-09-22.md'
 Require-File 'docs\feature-request-hallucination-inventory-2026-09-22.md'
 Require-File 'docs\feature-request-pixel-perfect-deltas-2026-09-22.md'
 Require-File 'docs\feature-request-pdf-illustrator-graphics-skills-2026-09-22.md'
@@ -27,6 +28,7 @@ Require-File '.github\workflows\bt0.yml'
 Require-File 'tools\Install-DesignUatSkill.ps1'
 Require-File 'docs\feature-request-three-gates-2026-09-22.md'
 Require-File 'docs\feature-request-mrb-project-management-harvest-2026-09-22.md'
+Require-File 'fixtures\README.md'
 
 $skill = Get-Content (Join-Path $root '.grok\skills\design-uat\SKILL.md') -Raw
 foreach ($needle in @(
@@ -121,6 +123,10 @@ foreach ($rel in $scanFiles) {
         }
     }
 }
+
+$fx = Join-Path $PSScriptRoot 'Validate-DesignUatFixtures.ps1'
+& powershell -NoProfile -ExecutionPolicy Bypass -File $fx
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
 Write-Output 'Validate-DesignUatSkill: OK'
 exit 0
