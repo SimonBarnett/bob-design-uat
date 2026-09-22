@@ -8,7 +8,7 @@
 ## Goals
 
 1. Ship P0: skill, functional spec, FR, report template, validator, this plan (issue #1).
-2. Later: golden (#3) and adversarial (#5) fixture packs with expected nit YAML.
+2. Later: golden (#3) fixture pack with expected nit YAML (and clean control from #5).
 3. Keep gates G1–G3 repeatable; Bob chairs MRB on #1.
 
 ## Non-goals

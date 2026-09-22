@@ -18,9 +18,14 @@ Do not stamp human UAT here. Bob chairs UAT.
 
 | Issue | Owner (talk lock) | Topic |
 | --- | --- | --- |
-| #1 | flamingo job 19ff4527 seed | skill body |
-| #2 | ce-priority-dev1-11904 | three visual gates |
-| #3 | flamingo-24108 spare | golden fixtures |
+| #1 | seeded main | skill body |
+| #2 | ce-priority-dev1-11904 | three visual gates (local branch; GCM) |
+| #3 | marchhare-20280 | golden fixtures (this pack under `fixtures/`) |
 | #6 | marchhare-23624 | spelling-in-image |
 | #7 | marchhare-23624 | hallucination inventory |
 | #8 | marchhare-23624 | pixel-perfect deltas |
+
+## Golden fixtures
+
+See `fixtures/` — brief + G1/G2/G3 fail cases + clean control + `expected-nits.yaml`. Regenerate with `python tools/make_golden_fixtures.py`.
+

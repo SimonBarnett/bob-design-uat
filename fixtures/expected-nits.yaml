@@ -1,0 +1,37 @@
+# Golden fixture expected nits (FR #3 + #5 clean-control notes)
+# severity: blocker | major | nit
+fixtures:
+  clean-control.png:
+    brief: brief.md
+    expected_nits: []
+  g1-spelling.png:
+    brief: brief.md
+    expected_nits:
+      - gate: G1
+        where: g1-spelling.png CTA label
+        expected: Join as host
+        actual: Join as hosst
+        severity: blocker
+  g2-layout-color.png:
+    brief: brief.md
+    expected_nits:
+      - gate: G2
+        where: g2-layout-color.png CTA fill
+        expected: "#0B6E4F"
+        actual: "#B42828 (approx red, not brief accent)"
+        severity: major
+  g3-hallucination.png:
+    brief: brief.md
+    expected_nits:
+      - gate: G3
+        where: g3-hallucination.png extra button
+        expected: only CTA Join as host
+        actual: Buy now button
+        severity: blocker
+        tag: NOT_IN_BRIEF
+      - gate: G3
+        where: g3-hallucination.png top-right copy
+        expected: no AWS / Lambda lead
+        actual: AWS Lambda text
+        severity: blocker
+        tag: NOT_IN_BRIEF
