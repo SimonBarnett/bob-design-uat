@@ -1,0 +1,12 @@
+case: T-A03-invented-logo
+brief: brief.md
+artifact: screenshot.png
+nits:
+  - gate: G3
+    class: invented_logo
+    brief_field: chrome.logo
+    where: screenshot.png nav
+    expected: Club Madeira
+    actual: Club Madeira  |  NITSA UK
+    severity: blocker
+    tag: NOT_IN_BRIEF

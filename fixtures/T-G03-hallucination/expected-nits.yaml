@@ -1,0 +1,20 @@
+case: T-G03-hallucination
+brief: brief.md
+artifact: screenshot.png
+nits:
+  - gate: G3
+    class: invented_chrome
+    brief_field: nav
+    where: screenshot.png nav
+    expected: Club Madeira
+    actual: Admin | ACME Corp
+    severity: blocker
+    tag: NOT_IN_BRIEF
+  - gate: G3
+    class: invented_logo
+    brief_field: chrome.logo
+    where: screenshot.png nav
+    expected: (none)
+    actual: ACME Corp
+    severity: blocker
+    tag: NOT_IN_BRIEF

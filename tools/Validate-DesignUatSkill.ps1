@@ -13,8 +13,10 @@ function Require-File($rel) {
 Require-File '.grok\skills\design-uat\SKILL.md'
 Require-File 'docs\functional-spec.md'
 Require-File 'docs\feature-request-design-uat-skill-2026-09-22.md'
+Require-File 'docs\feature-request-golden-fixture-pack-2026-09-22.md'
 Require-File 'docs\build-and-test-plan.md'
 Require-File 'docs\templates\design-uat-report.md'
+Require-File 'fixtures\README.md'
 
 $skill = Get-Content (Join-Path $root '.grok\skills\design-uat\SKILL.md') -Raw
 foreach ($needle in @('name: design-uat', 'G1', 'G2', 'G3', 'ready for human UAT')) {
@@ -44,6 +46,10 @@ foreach ($rel in $scanFiles) {
         }
     }
 }
+
+$fx = Join-Path $PSScriptRoot 'Validate-DesignUatFixtures.ps1'
+& powershell -NoProfile -ExecutionPolicy Bypass -File $fx
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
 Write-Output 'Validate-DesignUatSkill: OK'
 exit 0

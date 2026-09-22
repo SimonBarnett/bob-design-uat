@@ -1,0 +1,11 @@
+case: T-A02-1px
+brief: brief.md
+artifact: screenshot.png
+nits:
+  - gate: G2
+    class: layout
+    brief_field: cta.pad_left
+    where: screenshot.png CTA
+    expected: 24px
+    actual: 23px
+    severity: nit

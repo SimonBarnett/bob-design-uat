@@ -1,0 +1,18 @@
+case: T-G02-layout
+brief: brief.md
+artifact: screenshot.png
+nits:
+  - gate: G2
+    class: hex
+    brief_field: brand.hex
+    where: screenshot.png bar
+    expected: '#0A5C3A'
+    actual: '#FF0000'
+    severity: blocker
+  - gate: G2
+    class: layout
+    brief_field: cta.pad_left
+    where: screenshot.png CTA
+    expected: 24px
+    actual: 8px
+    severity: major

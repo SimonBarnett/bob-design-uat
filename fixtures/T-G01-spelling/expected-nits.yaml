@@ -1,0 +1,11 @@
+case: T-G01-spelling
+brief: brief.md
+artifact: screenshot.png
+nits:
+  - gate: G1
+    class: spelling
+    brief_field: cta.label
+    where: screenshot.png CTA
+    expected: Start campaign
+    actual: Start campiagn
+    severity: blocker

@@ -1,0 +1,11 @@
+case: T-A01-wrong-hex
+brief: brief.md
+artifact: screenshot.png
+nits:
+  - gate: G2
+    class: hex
+    brief_field: brand.hex
+    where: screenshot.png bar
+    expected: '#0A5C3A'
+    actual: '#1122FF'
+    severity: blocker
