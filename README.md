@@ -25,14 +25,18 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\Validate-DesignUatSk
 powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\Install-DesignUatSkill.ps1
 ```
 
-## Open FRs (do not second-take)
+## Closed FRs (DONE — conversations locked)
 
-| Issue | Owner (talk lock) | Topic |
+No open issues or PRs. Closed issues were locked 2026-09-22 (reason: resolved) so FAIL/FR boards are not reopened after merge.
+
+| Issue | Merge | Topic |
 | --- | --- | --- |
-| #1 | P0 merged (46d06aa / PR #9); flamingo keep-building | skill body |
-| #2 | ce-priority-dev1-11904 | three visual gates |
-| #3 | flamingo-24108 | golden fixtures (+ absorbed #5) |
-| #6 | marchhare-23624 | spelling-in-image |
-| #7 | marchhare-23624 | hallucination inventory |
-| #8 | marchhare-23624 | pixel-perfect deltas |
-| #57 | loop-i57-build | Playwright visual capture |
+| #1 | PR #9 / #11 | skill body |
+| #2 | PR #37 | three visual gates |
+| #3 | PR #56 `8d78f19` | golden fixtures (+ absorbed #5) |
+| #6 | PR #19 `46fac43` | spelling-in-image |
+| #7 | PR #26 `02292a1` | hallucination inventory |
+| #8 | PR #45 | pixel-perfect deltas |
+| #29 | PR #53 `c496bad` | PDF / Illustrator / graphics companions |
+| #49 | PR #61 `2d23921` | harvest skills |
+| #57 | PR #66 `3c630f8` | Playwright visual capture |
