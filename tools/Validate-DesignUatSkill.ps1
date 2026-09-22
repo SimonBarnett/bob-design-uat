@@ -19,10 +19,11 @@ Require-File 'docs\templates\design-uat-report.md'
 Require-File 'docs\expected-nits.schema.md'
 Require-File '.github\workflows\bt0.yml'
 Require-File 'tools\Install-DesignUatSkill.ps1'
+Require-File 'docs\feature-request-three-gates-2026-09-22.md'
 
 $skill = Get-Content (Join-Path $root '.grok\skills\design-uat\SKILL.md') -Raw
 foreach ($needle in @(
-        'name: design-uat', 'G1', 'G2', 'G3', 'ready for human UAT',
+        'name: design-uat', 'G1', 'G2', 'G3', 'OCR', 'ready for human UAT',
         'Severity rubric', 'Per-image walk',
         'Fail-closed', 'delta_px', 'Inventory', 'NOT_IN_BRIEF',
         'chrome', 'copy', 'image', 'flow'
