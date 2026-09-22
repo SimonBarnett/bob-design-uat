@@ -6,6 +6,16 @@
 **Reviewer agent:**  
 **SHA or build id:**  
 
+## Gate scorecard (issue #2)
+
+Run **G1 → G2 → G3**. A FAIL stops the pass.
+
+| Gate | Result | Evidence (1 line) |
+|------|--------|-------------------|
+| G1 OCR / spelling | PASS / FAIL | |
+| G2 Layout-delta vs brief | PASS / FAIL | |
+| G3 Invented chrome | PASS / FAIL | |
+
 ## Inventory
 
 | # | Artifact | Brief section | Notes |
