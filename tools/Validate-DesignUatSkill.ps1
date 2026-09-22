@@ -13,6 +13,7 @@ function Require-File($rel) {
 Require-File '.grok\skills\design-uat\SKILL.md'
 Require-File 'docs\functional-spec.md'
 Require-File 'docs\feature-request-design-uat-skill-2026-09-22.md'
+Require-File 'docs\feature-request-pixel-perfect-deltas-2026-09-22.md'
 Require-File 'docs\build-and-test-plan.md'
 Require-File 'docs\templates\design-uat-report.md'
 Require-File 'docs\expected-nits.schema.md'
@@ -23,7 +24,7 @@ $skill = Get-Content (Join-Path $root '.grok\skills\design-uat\SKILL.md') -Raw
 foreach ($needle in @(
         'name: design-uat', 'G1', 'G2', 'G3', 'ready for human UAT',
         'Severity rubric', 'Per-image walk',
-        'Fail-closed', 'delta_px', 'Inventory'
+        'Fail-closed', 'Deltas (#8)', 'delta_px', 'Inventory'
     )) {
     if ($skill -notmatch [regex]::Escape($needle)) {
         Write-Error "SKILL.md missing expected text: $needle"
@@ -32,9 +33,17 @@ foreach ($needle in @(
 }
 
 $schema = Get-Content (Join-Path $root 'docs\expected-nits.schema.md') -Raw
-foreach ($needle in @('delta_px', 'delta_hex', 'inventory', 'NOT_IN_BRIEF', 'fail-closed')) {
+foreach ($needle in @('G2 deltas (#8)', 'delta_px', 'delta_hex', 'inventory', 'NOT_IN_BRIEF', 'fail-closed')) {
     if ($schema -notmatch [regex]::Escape($needle)) {
         Write-Error "expected-nits.schema.md missing expected text: $needle"
+        exit 1
+    }
+}
+
+$report = Get-Content (Join-Path $root 'docs\templates\design-uat-report.md') -Raw
+foreach ($needle in @('delta_px', 'delta_hex')) {
+    if ($report -notmatch [regex]::Escape($needle)) {
+        Write-Error "design-uat-report.md missing expected text: $needle"
         exit 1
     }
 }
@@ -43,7 +52,8 @@ $scanFiles = @(
     'docs\functional-spec.md',
     '.grok\skills\design-uat\SKILL.md',
     'docs\build-and-test-plan.md',
-    'docs\feature-request-design-uat-skill-2026-09-22.md'
+    'docs\feature-request-design-uat-skill-2026-09-22.md',
+    'docs\feature-request-pixel-perfect-deltas-2026-09-22.md'
 )
 $secretPatterns = @(
     '(?i)(?:^|[;\s])(?:password|XAI_API_KEY)\s*=\s*[''"]?[a-zA-Z0-9_./+-]{8,}'

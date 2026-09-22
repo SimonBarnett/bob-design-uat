@@ -70,6 +70,8 @@ Expected nit YAML shape for later fixture PRs: `docs/expected-nits.schema.md`. D
 | T-S07 | G3 inventory table required |
 | T-S08 | G2 row has delta_px and/or delta_hex |
 
+**T-S08 evidence:** BT0 checks skill `Deltas (#8)`, schema `G2 deltas (#8)`, and report template `delta_px` / `delta_hex` columns.
+
 ## P1 — Golden fixtures (issue #3, follow-on PR)
 
 Tree: `fixtures/golden/<case>/` with `brief.md`, screenshot, `expected-nits.yaml` (schema in `docs/expected-nits.schema.md`).
@@ -96,6 +98,16 @@ Tree: `fixtures/golden/<case>/` with `brief.md`, screenshot, `expected-nits.yaml
 - [ ] Test summary on PR (BT0 output + BT1 checklist)
 - [ ] No UAT stamp in PR body
 - [ ] Bob chairs MRB on #1
+
+## Definition of done (issue #8 — G2 pixel deltas)
+
+- [ ] `docs/feature-request-pixel-perfect-deltas-2026-09-22.md` on branch
+- [ ] Skill **Deltas (#8)** + schema **G2 deltas (#8)** + report `delta_px` / `delta_hex` columns (T-S08)
+- [ ] BT0 green on PR branch
+- [ ] PR title includes `#8`
+- [ ] Test summary on PR (BT0 output + T-S08 note)
+- [ ] No UAT stamp in PR body
+- [ ] Bob chairs MRB on #8
 
 ## Kickoff (`Start-BobBuild -Goal`)
 

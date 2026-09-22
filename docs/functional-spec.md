@@ -16,7 +16,7 @@
 | L5 | Output: structured report from `docs/templates/design-uat-report.md` plus gate-tagged nit rows (`G1`\|`G2`\|`G3`). Verdict section is **evidence only** — no `ready for human UAT`. |
 | L6 | Workers: `FAIL`, `PASS-nits candidate`, or `candidate PASS-UAT, Bob stamp required` only. **Bob** stamps ready for human UAT. |
 | L7 | No secrets in git. Do not commit `password=` or API key **assignments** (instructional warnings OK). |
-| L8 | Repo docs: this file, `docs/feature-request-design-uat-skill-2026-09-22.md`, `docs/build-and-test-plan.md`. |
+| L8 | Repo docs: this file, `docs/feature-request-design-uat-skill-2026-09-22.md`, `docs/feature-request-pixel-perfect-deltas-2026-09-22.md` (#8), `docs/build-and-test-plan.md`. |
 | L9 | `tools/Validate-DesignUatSkill.ps1` exits 0 when structure checks pass (BT0). |
 | L10 | `.github/workflows/bt0.yml` runs BT0. `docs/expected-nits.schema.md` locks YAML shape for #3/#5. Skill has severity rubric + per-image walk. |
 

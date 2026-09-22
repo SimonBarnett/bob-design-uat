@@ -12,6 +12,7 @@ Do not stamp human UAT here. Bob chairs UAT.
 
 - `docs/functional-spec.md` — locked gates and acceptance
 - `docs/feature-request-design-uat-skill-2026-09-22.md` — parked FR (#1)
+- `docs/feature-request-pixel-perfect-deltas-2026-09-22.md` — parked FR (#8, G2 px/hex)
 - `docs/build-and-test-plan.md` — how workers prove the skill
 
 ## Self-check

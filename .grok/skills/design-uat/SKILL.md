@@ -35,7 +35,7 @@ Visible words must match the brief and ordinary spelling. Fail on typos, wrong p
 
 ## G2 — Layout-delta / pixel-perfect
 
-Compare regions, spacing, alignment, sizes, and colors to the brief or supplied mock. Report deltas in px or hex when visible. "Looks close" is not a pass when brief demands pixel-perfect. Include contrast, clipping, overflow, and broken grids here.
+Compare regions, alignment, spacing, type size, and colors to the brief or supplied mock. Report deltas in px or hex when visible. Any unexplained delta vs brief/mock is a nit. "Looks close" is not a pass when brief demands pixel-perfect. Include contrast, clipping, overflow, and broken grids here.
 
 **Deltas (#8):** every G2 row must include at least one of `delta_px` or `delta_hex` in the report and fixture `expected-nits.yaml`. A G2 without a measurement is incomplete.
 
