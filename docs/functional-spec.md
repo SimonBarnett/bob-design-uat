@@ -49,9 +49,18 @@
 | A6 | Severity rubric + per-image walk in skill; BT0 CI workflow present. |
 | A7 | G1 fail-closed (blocker), G3 full inventory (`in_brief` / `NOT_IN_BRIEF`), G2 `delta_px`/`delta_hex` in schema + skill (#6 #7 #8). |
 
+## Related skills (companions)
+
+| Skill | Role |
+|-------|------|
+| `design-uat` | Product UI screenshots / mocks (this skill) |
+| `pdf-design` | PDF / print page stack |
+| `illustrator-design` | Illustrator artboards / exports |
+| `graphics-design` | Loose graphics packs (PNG/SVG/icons) |
+
 ## Related GitHub FRs
 
-#1 skill (MRB home), #3 golden fixtures, #5 adversarial fixtures, #6 G1 spelling, #7 G3 hallucination, #8 G2 pixel deltas.
+#1 skill (MRB home), #3 golden fixtures, #5 adversarial fixtures, #6 G1 spelling, #7 G3 hallucination, #8 G2 pixel deltas; PDF/Illustrator/graphics companions FR (`docs/feature-request-pdf-illustrator-graphics-skills-2026-09-22.md`).
 
 ## Phase order
 
