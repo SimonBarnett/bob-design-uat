@@ -3,7 +3,8 @@
 **Date:** 2026-09-22  
 **Repo:** SimonBarnett/bob-design-uat  
 **FR:** docs/feature-request-design-uat-skill-2026-09-22.md  
-**Issue:** https://github.com/SimonBarnett/bob-design-uat/issues/1  
+**Issue (#1):** https://github.com/SimonBarnett/bob-design-uat/issues/1  
+**Issue (#7 G3):** https://github.com/SimonBarnett/bob-design-uat/issues/7 — `docs/feature-request-hallucination-inventory-2026-09-22.md`  
 
 ## Goals
 
@@ -67,7 +68,7 @@ Expected nit YAML shape for later fixture PRs: `docs/expected-nits.schema.md`. D
 | Test | Expected |
 |------|----------|
 | T-S06 | G1 typo is blocker / FAIL (fail-closed) |
-| T-S07 | G3 inventory table required |
+| T-S07 | G3 inventory table required (report template + skill `NOT_IN_BRIEF`; BT0 checks) |
 | T-S08 | G2 row has delta_px and/or delta_hex |
 
 **T-S08 evidence:** BT0 checks skill `Deltas (#8)`, schema `G2 deltas (#8)`, and report template `delta_px` / `delta_hex` columns.
@@ -98,6 +99,15 @@ Tree: `fixtures/golden/<case>/` with `brief.md`, screenshot, `expected-nits.yaml
 - [ ] Test summary on PR (BT0 output + BT1 checklist)
 - [ ] No UAT stamp in PR body
 - [ ] Bob chairs MRB on #1
+
+## Definition of done (#7 / T-S07)
+
+- [ ] BT0 green (includes T-S07 report + skill needles)
+- [ ] `docs/feature-request-hallucination-inventory-2026-09-22.md` on branch
+- [ ] PR title includes `#7`
+- [ ] Test summary on PR (BT0 output; T-S07 row)
+- [ ] No UAT stamp in PR body
+- [ ] Bob chairs MRB on #7 (fixture proof T-G03 stays on #3)
 
 ## Definition of done (issue #8 — G2 pixel deltas)
 
