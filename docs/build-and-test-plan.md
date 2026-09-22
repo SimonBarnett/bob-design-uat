@@ -52,9 +52,19 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\Validate-DesignUatSk
 
 **Pass:** **A2**.
 
+## P0b — Gate schema (issues #6 #7 #8)
+
+`docs/schemas/expected-nits.yaml` plus skill/template rules:
+
+| Test | Expected |
+|------|----------|
+| T-S06 | G1 typo is blocker / FAIL (fail-closed) |
+| T-S07 | G3 inventory table required |
+| T-S08 | G2 row has delta_px and/or delta_hex |
+
 ## P1 — Golden fixtures (issue #3, follow-on PR)
 
-Tree: `fixtures/golden/<case>/` with `brief.md`, screenshot, `expected-nits.yaml`.
+Tree: `fixtures/golden/<case>/` with `brief.md`, screenshot, `expected-nits.yaml` (schema above).
 
 | Test | Expected |
 |------|----------|

@@ -1,0 +1,30 @@
+# Schema for fixture expected-nits.yaml (issues #6 #7 #8).
+# Golden/adversarial packs (#3/#5) use this shape. Do not stamp UAT.
+#
+# case: string
+# gate: G1 | G2 | G3 | brief
+# G1: any misspelling => severity blocker (fail-closed)
+# G2: require delta_px and/or delta_hex
+# G3: inventory[] with in_brief: yes | NOT_IN_BRIEF
+schema: expected-nits/v1
+example:
+  case: t-g01-spelling
+  nits:
+    - gate: G1
+      where: hero heading
+      expected: Smart Catalogue
+      actual: Smart Cataloge
+      severity: blocker
+  inventory: []
+  example_g2:
+    - gate: G2
+      where: primary button
+      expected: 16px / #111111
+      actual: 14px / #222222
+      severity: major
+      delta_px: 2
+      delta_hex: "#111111->#222222"
+  example_g3_inventory:
+    - item: Donate now
+      kind: chrome
+      in_brief: NOT_IN_BRIEF

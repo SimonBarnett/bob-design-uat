@@ -15,9 +15,10 @@ Require-File 'docs\functional-spec.md'
 Require-File 'docs\feature-request-design-uat-skill-2026-09-22.md'
 Require-File 'docs\build-and-test-plan.md'
 Require-File 'docs\templates\design-uat-report.md'
+Require-File 'docs\schemas\expected-nits.yaml'
 
 $skill = Get-Content (Join-Path $root '.grok\skills\design-uat\SKILL.md') -Raw
-foreach ($needle in @('name: design-uat', 'G1', 'G2', 'G3', 'ready for human UAT')) {
+foreach ($needle in @('name: design-uat', 'G1', 'G2', 'G3', 'ready for human UAT', 'Fail-closed', 'delta_px', 'Inventory')) {
     if ($skill -notmatch [regex]::Escape($needle)) {
         Write-Error "SKILL.md missing expected text: $needle"
         exit 1

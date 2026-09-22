@@ -31,13 +31,19 @@ Read the original brief first. Then inspect every supplied image. Report defects
 
 Visible words must match the brief and ordinary spelling. Fail on typos, wrong product names, missing letters, lorem left in place, inconsistent casing when brief is explicit.
 
+**Fail-closed (#6):** any G1 typo is a **blocker**, not a cosmetic nit. The check **FAIL**s. Do not downgrade a misspelling to PASS-nits.
+
 ## G2 — Layout-delta / pixel-perfect
 
 Compare regions, spacing, alignment, sizes, and colors to the brief or supplied mock. Report deltas in px or hex when visible. "Looks close" is not a pass when brief demands pixel-perfect. Include contrast, clipping, overflow, and broken grids here.
 
+**Deltas (#8):** every G2 row must include at least one of `delta_px` or `delta_hex` in the report / `expected-nits.yaml`. A G2 without a measurement is incomplete.
+
 ## G3 — Hallucination / invented chrome
 
 Fail on controls, brands, nav items, data, imagery, or copy the brief did not authorize. Tag `NOT_IN_BRIEF` when the invention is obvious.
+
+**Inventory (#7):** also list every visible chrome/copy/image item and mark `in_brief` or `NOT_IN_BRIEF`. Missing inventory is incomplete even if no hallucination is found.
 
 ## Brief nits
 

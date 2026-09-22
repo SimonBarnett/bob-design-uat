@@ -14,9 +14,9 @@
 
 ## Nit list (G1 | G2 | G3 | brief)
 
-| gate | where | expected | actual | severity |
-|------|-------|----------|--------|----------|
-| | | | | |
+| gate | where | expected | actual | severity | delta_px | delta_hex |
+|------|-------|----------|--------|----------|----------|-----------|
+| | | | | | | |
 
 ### G1 — Spelling-in-image
 
@@ -29,6 +29,12 @@
 ### G3 — Hallucination / invented chrome
 
 (Summary or extra rows if needed.)
+
+### G3 inventory (required)
+
+| item | kind | in_brief |
+|------|------|----------|
+| | chrome / copy / image / flow | yes / NOT_IN_BRIEF |
 
 ## Brief fidelity
 

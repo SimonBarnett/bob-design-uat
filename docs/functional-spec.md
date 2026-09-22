@@ -45,6 +45,7 @@
 | A3 | Validator passes on repo tree (BT0). |
 | A4 | Build-and-test plan documents BT0–BT2 and fixture phases P1–P2. |
 | A5 | Feature-request doc links issue #1 and maps MUSTs to A1–A4. |
+| A6 | G1 fail-closed, G3 inventory, G2 px/hex schema documented (#6 #7 #8). |
 
 ## Related GitHub FRs
 
