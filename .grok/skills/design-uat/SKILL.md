@@ -30,6 +30,7 @@ Prefer these when the artifact is not a product UI screenshot:
 | `pdf-design` | Multi-page PDF / print page stack |
 | `illustrator-design` | Illustrator `.ai` artboards / AI exports |
 | `graphics-design` | Loose PNG/SVG/icon/brand-kit packs |
+| `mrb-project-management` | FR intake, BT0 evidence, MRB chairing on this repo (#49) |
 
 Each companion still runs **G1–G3** from this skill after page/artboard/asset renders exist.
 

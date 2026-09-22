@@ -135,6 +135,19 @@ Tree: `fixtures/golden/<case>/` with `brief.md`, screenshot, `expected-nits.yaml
 - [ ] No UAT stamp in PR body
 - [ ] Bob chairs MRB on #2
 
+## Definition of done (issue #49 — MRB PM harvest)
+
+**FR:** `docs/feature-request-mrb-project-management-harvest-2026-09-22.md`  
+**Issue:** https://github.com/SimonBarnett/bob-design-uat/issues/49  
+
+- [ ] `docs/feature-request-mrb-project-management-harvest-2026-09-22.md` on branch
+- [ ] Skill `mrb-project-management` + install script + BT0 needles (A-H1–A-H5)
+- [ ] BT0 green on PR branch
+- [ ] PR title includes `#49`
+- [ ] Test summary on PR (BT0 output)
+- [ ] No UAT stamp in PR body
+- [ ] Bob chairs MRB on #49
+
 ## Kickoff (`Start-BobBuild -Goal`)
 
 Read `docs/functional-spec.md`, `docs/feature-request-design-uat-skill-2026-09-22.md`, and
