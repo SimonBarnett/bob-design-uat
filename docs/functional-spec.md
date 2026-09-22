@@ -18,7 +18,8 @@
 | L7 | No secrets in git. Do not commit `password=` or API key **assignments** (instructional warnings OK). |
 | L8 | Repo docs: this file, `docs/feature-request-design-uat-skill-2026-09-22.md`, `docs/build-and-test-plan.md`. |
 | L9 | `tools/Validate-DesignUatSkill.ps1` exits 0 when structure checks pass (BT0). |
-| L10 | Golden + adversarial fixtures (#3, absorbed #5): each case has brief + PNG + `expected-nits.yaml`; clean control is zero nits. |
+| L10 | `.github/workflows/bt0.yml` runs BT0. `docs/expected-nits.schema.md` locks YAML shape for #3/#5. Skill has severity rubric + per-image walk. |
+| L11 | Golden + adversarial fixtures (#3, absorbed #5): each case has brief + PNG + `expected-nits.yaml`; clean control is zero nits. |
 
 ## MUST NOT
 
@@ -46,7 +47,8 @@
 | A3 | Validator passes on repo tree (BT0). |
 | A4 | Build-and-test plan documents BT0–BT2 and fixture phases P1–P2. |
 | A5 | Feature-request doc links issue #1 and maps MUSTs to A1–A4. |
-| A6 | Fixture pack + `Validate-DesignUatFixtures.ps1` (A-F1–A-F4). |
+| A6 | Severity rubric + per-image walk in skill; BT0 CI workflow present. |
+| A7 | Fixture pack + `Validate-DesignUatFixtures.ps1` (A-F1–A-F4). |
 
 ## Related GitHub FRs
 

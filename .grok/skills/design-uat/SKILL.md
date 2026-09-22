@@ -39,6 +39,25 @@ Compare regions, spacing, alignment, sizes, and colors to the brief or supplied 
 
 Fail on controls, brands, nav items, data, imagery, or copy the brief did not authorize. Tag `NOT_IN_BRIEF` when the invention is obvious.
 
+## Per-image walk
+
+On each artifact, in order:
+
+1. **Read every visible word** (G1). Transcribe CTAs, headings, badges, errors, legal lines. Compare to brief glossary. One misspelled product name is a blocker.
+2. **Overlay brief regions** (G2). For each named region in the brief, mark found / missing / wrong size. Measure obvious deltas (px) and color (hex) when a mock exists. Clipped text and contrast fails live here.
+3. **Subtract brief objects** (G3). Anything left on the image that the brief did not authorize is invented chrome. Tag `NOT_IN_BRIEF`.
+4. **Missing artifact** — if the brief requires a state/breakpoint and no image was supplied, add a G2 or `brief` row. Do not invent pixels to fill the gap.
+
+## Severity rubric
+
+| Severity | Use when |
+|----------|----------|
+| blocker | Wrong or missing primary CTA; misspelled product/brand name; invented primary nav; required screen/state absent; copy that contradicts the brief. |
+| major | Contrast fail; overflow/clip; 8px+ misalignment vs mock; extra secondary chrome; wrong hex when brief names a token. |
+| nit | 1–2px drift; minor casing when brief is not explicit; decorative extras that do not change the task. |
+
+A single blocker forces verdict **FAIL**. Majors without blockers are still **FAIL** if they break the task; otherwise **PASS-nits candidate**. Zero defects is **candidate PASS-UAT, Bob stamp required** — not a UAT stamp.
+
 ## Brief nits
 
 Review the brief for contradictions, missing acceptance, or copy no UI can satisfy. Tag gate `brief` in the report.
