@@ -1,0 +1,22 @@
+case: T-G04-overlap
+brief: brief.md
+artifact: screenshot.png
+nits:
+  - gate: G2
+    class: layout
+    brief_field: layout.no_overlap
+    where: screenshot.png title vs CTA
+    expected: zero bbox intersection
+    actual: title and CTA rectangles overlap
+    severity: major
+    delta_px: 36
+inventory:
+  - item: Club Madeira
+    kind: chrome
+    in_brief: yes
+  - item: Episode 01
+    kind: copy
+    in_brief: yes
+  - item: Start campaign
+    kind: copy
+    in_brief: yes

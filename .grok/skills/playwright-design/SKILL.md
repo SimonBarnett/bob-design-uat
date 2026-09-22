@@ -33,8 +33,14 @@ Do not invent product URLs. Do not stamp ready for human UAT (Bob only).
    row for a required state = stop and report (do not guess URLs).
 2. With Playwright, navigate each authorized URL, set viewport, reach the
    named state, save **full-page or region** PNGs per brief.
-3. Hand every PNG to **`design-uat`**: run **G1 → G2 → G3** on each still.
-4. Report using `docs/templates/design-uat-report.md`; put capture filename
+3. **Layout overlap (G2 adjunct, #71):** when the brief forbids intersecting
+   chrome or when overlap is a stated acceptance row, run a bbox intersection
+   pass on visible controls before scoring stills. Tag hits as **G2** /
+   `class: layout` / overlap in `where`. Example hook:
+   `tools/LayoutOverlap-PlaywrightHook.example.mjs`. Calibration fixture:
+   `fixtures/T-G04-overlap/`.
+4. Hand every PNG to **`design-uat`**: run **G1 → G2 → G3** on each still.
+5. Report using `docs/templates/design-uat-report.md`; put capture filename
    in `where`. Verdict rules are `design-uat` only.
 
 ## Capture rules

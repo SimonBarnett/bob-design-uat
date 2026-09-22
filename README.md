@@ -15,6 +15,7 @@ Do not stamp human UAT here. Bob chairs UAT.
 - `docs/feature-request-golden-fixture-pack-2026-09-22.md` — parked FR (#3, absorbs #5)
 - `docs/feature-request-hallucination-inventory-2026-09-22.md` — G3 inventory FR (#7)
 - `docs/feature-request-playwright-visual-uat-2026-09-22.md` — Playwright capture FR (#57)
+- `docs/feature-request-screen-layout-overlap-2026-09-22.md` — layout overlap checks FR (#71)
 - `docs/build-and-test-plan.md` — how workers prove the skill
 - `fixtures/` — golden + clean-control pack (`expected-nits.yaml`)
 

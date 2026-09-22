@@ -30,7 +30,9 @@ Require-File 'tools\Install-DesignUatSkill.ps1'
 Require-File 'docs\feature-request-three-gates-2026-09-22.md'
 Require-File 'docs\feature-request-playwright-visual-uat-2026-09-22.md'
 Require-File 'docs\feature-request-mrb-project-management-harvest-2026-09-22.md'
+Require-File 'docs\feature-request-screen-layout-overlap-2026-09-22.md'
 Require-File 'fixtures\README.md'
+Require-File 'tools\LayoutOverlap-PlaywrightHook.example.mjs'
 
 $skill = Get-Content (Join-Path $root '.grok\skills\design-uat\SKILL.md') -Raw
 foreach ($needle in @(
@@ -38,7 +40,8 @@ foreach ($needle in @(
         'Severity rubric', 'Per-image walk',
         'Fail-closed', 'Deltas (#8)', 'delta_px', 'Inventory', 'NOT_IN_BRIEF',
         'chrome', 'copy', 'image', 'flow',
-        'playwright-design', 'pdf-design', 'illustrator-design', 'graphics-design', 'mrb-project-management'
+        'playwright-design', 'pdf-design', 'illustrator-design', 'graphics-design', 'mrb-project-management',
+        'Overlap (#71)', 'T-G04-overlap'
     )) {
     if ($skill -notmatch [regex]::Escape($needle)) {
         Write-Error "SKILL.md missing expected text: $needle"
@@ -53,7 +56,11 @@ foreach ($pair in @(
         @{ rel = '.grok\skills\graphics-design\SKILL.md'; name = 'graphics-design' }
     )) {
     $text = Get-Content (Join-Path $root $pair.rel) -Raw
-    foreach ($needle in @("name: $($pair.name)", 'design-uat', 'G1', 'ready for human UAT')) {
+    $needles = @("name: $($pair.name)", 'design-uat', 'G1', 'ready for human UAT')
+    if ($pair.name -eq 'playwright-design') {
+        $needles += @('Layout overlap', 'T-G04-overlap', 'LayoutOverlap-PlaywrightHook.example.mjs')
+    }
+    foreach ($needle in $needles) {
         if ($text -notmatch [regex]::Escape($needle)) {
             Write-Error "$($pair.rel) missing expected text: $needle"
             exit 1
@@ -112,7 +119,8 @@ $scanFiles = @(
     'docs\feature-request-pixel-perfect-deltas-2026-09-22.md',
     'docs\feature-request-pdf-illustrator-graphics-skills-2026-09-22.md',
     'docs\feature-request-playwright-visual-uat-2026-09-22.md',
-    'docs\feature-request-mrb-project-management-harvest-2026-09-22.md'
+    'docs\feature-request-mrb-project-management-harvest-2026-09-22.md',
+    'docs\feature-request-screen-layout-overlap-2026-09-22.md'
 )
 $secretPatterns = @(
     '(?i)(?:^|[;\s])(?:password|XAI_API_KEY)\s*=\s*[''"]?[a-zA-Z0-9_./+-]{8,}'

@@ -7,6 +7,7 @@
 **Issue (#7 G3):** https://github.com/SimonBarnett/bob-design-uat/issues/7 — `docs/feature-request-hallucination-inventory-2026-09-22.md`  
 **Issue (#8 G2):** https://github.com/SimonBarnett/bob-design-uat/issues/8 — `docs/feature-request-pixel-perfect-deltas-2026-09-22.md`  
 **Issue (#57 Playwright):** https://github.com/SimonBarnett/bob-design-uat/issues/57 — `docs/feature-request-playwright-visual-uat-2026-09-22.md`  
+**Issue (#71 overlap):** https://github.com/SimonBarnett/bob-design-uat/issues/71 — `docs/feature-request-screen-layout-overlap-2026-09-22.md`  
 
 ## Goals
 
@@ -87,6 +88,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\Validate-DesignUatFi
 |------|----------|
 | T-G01 | Misspelling case → G1 **blocker** |
 | T-G02 | Layout case → G2 nit with px/hex |
+| T-G04 | Overlap case → G2 layout / bbox intersection (#71) |
 | T-G03 | Hallucination → G3, `NOT_IN_BRIEF` |
 | T-A01 | Wrong hex → G2 |
 | T-A02 | 1px pad → G2 nit |
@@ -152,6 +154,19 @@ Do not second-take. 23624 lock.
 - [ ] PR title includes `#57`
 - [ ] No UAT stamp in PR body
 - [ ] Bob chairs MRB on #57
+
+## Definition of done (issue #71 — screen layout overlap)
+
+**FR:** `docs/feature-request-screen-layout-overlap-2026-09-22.md`  
+**Issue:** https://github.com/SimonBarnett/bob-design-uat/issues/71  
+**BT plan:** `docs/build-and-test-plan-screen-layout-overlap-2026-09-22.md`
+
+- [ ] G2 overlap procedure in `design-uat` and `playwright-design`
+- [ ] `fixtures/T-G04-overlap/` + `tools/LayoutOverlap-PlaywrightHook.example.mjs`
+- [ ] BT0 green on PR branch (T-G04 + overlap needles)
+- [ ] PR title includes `#71`
+- [ ] No UAT stamp in PR body
+- [ ] Bob chairs MRB on #71
 
 ## Definition of done (issue #49 — MRB PM harvest)
 

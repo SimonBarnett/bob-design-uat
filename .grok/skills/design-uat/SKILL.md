@@ -49,7 +49,9 @@ Visible words must match the brief and ordinary spelling. Fail on typos, wrong p
 
 ## G2 — Layout-delta / pixel-perfect
 
-Compare regions, spacing, alignment, sizes, and colors to the brief or supplied mock. Report deltas in px or hex when visible. "Looks close" / "close enough" is not a pass. Include contrast, clipping, overflow, and broken grids here. No recorded delta when a drift is claimed is FAIL.
+Compare regions, spacing, alignment, sizes, and colors to the brief or supplied mock. Report deltas in px or hex when visible. "Looks close" / "close enough" is not a pass. Include contrast, clipping, overflow, broken grids, and **overlapping elements** (visible bbox intersection between controls or copy regions the brief treats as separate) here. No recorded delta when a drift is claimed is FAIL.
+
+**Overlap (#71):** when the brief requires non-intersecting regions, FAIL on any positive overlap area between those regions. Record `delta_px` as overlap extent when measurable. Playwright capture may pre-compute pairs via `tools/LayoutOverlap-PlaywrightHook.example.mjs`; still verify on the PNG. Fixture: `fixtures/T-G04-overlap/`.
 
 **Deltas (#8):** every G2 row must include at least one of `delta_px` or `delta_hex` in the report and fixture `expected-nits.yaml`. A G2 without a measurement is incomplete.
 
