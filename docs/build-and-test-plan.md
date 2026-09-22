@@ -34,7 +34,15 @@ From repo root:
 powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\Validate-DesignUatSkill.ps1
 ```
 
-**Pass:** exit code `0`. **Evidence:** paste output into PR or MRB comment. Satisfies **A3**.
+**Pass:** exit code `0`. **Evidence:** paste output into PR or MRB comment. Satisfies **A3**. CI: `.github/workflows/bt0.yml` runs the same script on Windows.
+
+Install for local Bob (does not stamp UAT):
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\Install-DesignUatSkill.ps1
+```
+
+Expected nit YAML shape for later fixture PRs: `docs/expected-nits.schema.md`. Do not add fixture images in a #1 keep-building PR.
 
 ## BT1 — Skill walkthrough (manual)
 
