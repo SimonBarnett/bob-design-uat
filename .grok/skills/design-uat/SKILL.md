@@ -53,7 +53,7 @@ Compare regions, spacing, alignment, sizes, and colors to the brief or supplied 
 
 ## G3 — Hallucination / invented chrome
 
-Fail on controls, brands, nav items, data, imagery, or copy the brief did not authorize. Tag `NOT_IN_BRIEF` when the invention is obvious.
+Fail on controls, brands, nav items, invented buttons, fake stats, extra pages, data, imagery, or copy the brief did not authorize. Tag `NOT_IN_BRIEF` when the invention is obvious.
 
 **Inventory (#7):** list every visible chrome, copy, image, and flow item; mark each `in_brief` (yes) or `NOT_IN_BRIEF`. Missing inventory is incomplete even if no hallucination is found.
 
