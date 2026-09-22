@@ -14,6 +14,7 @@ Do not stamp human UAT here. Bob chairs UAT.
 - `docs/feature-request-design-uat-skill-2026-09-22.md` — parked FR (#1)
 - `docs/feature-request-golden-fixture-pack-2026-09-22.md` — parked FR (#3, absorbs #5)
 - `docs/feature-request-hallucination-inventory-2026-09-22.md` — G3 inventory FR (#7)
+- `docs/feature-request-playwright-visual-uat-2026-09-22.md` — Playwright capture FR (#57)
 - `docs/build-and-test-plan.md` — how workers prove the skill
 - `fixtures/` — golden + clean-control pack (`expected-nits.yaml`)
 
@@ -34,3 +35,4 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\Install-DesignUatSki
 | #6 | marchhare-23624 | spelling-in-image |
 | #7 | marchhare-23624 | hallucination inventory |
 | #8 | marchhare-23624 | pixel-perfect deltas |
+| #57 | loop-i57-build | Playwright visual capture |

@@ -6,6 +6,7 @@
 **Issue (#1):** https://github.com/SimonBarnett/bob-design-uat/issues/1  
 **Issue (#7 G3):** https://github.com/SimonBarnett/bob-design-uat/issues/7 — `docs/feature-request-hallucination-inventory-2026-09-22.md`  
 **Issue (#8 G2):** https://github.com/SimonBarnett/bob-design-uat/issues/8 — `docs/feature-request-pixel-perfect-deltas-2026-09-22.md`  
+**Issue (#57 Playwright):** https://github.com/SimonBarnett/bob-design-uat/issues/57 — `docs/feature-request-playwright-visual-uat-2026-09-22.md`  
 
 ## Goals
 
@@ -137,6 +138,20 @@ Do not second-take. 23624 lock.
 - [ ] PR title includes `#2`
 - [ ] No UAT stamp in PR body
 - [ ] Bob chairs MRB on #2
+
+## Definition of done (issue #57 — Playwright visual capture)
+
+**FR:** `docs/feature-request-playwright-visual-uat-2026-09-22.md`  
+**Issue:** https://github.com/SimonBarnett/bob-design-uat/issues/57  
+
+- [ ] `.grok/skills/playwright-design/SKILL.md` with YAML `name: playwright-design`
+- [ ] Procedure: capture stills, then `design-uat` G1–G3; no worker UAT stamp
+- [ ] `design-uat` lists `playwright-design` companion; `docs/functional-spec.md` Related skills row
+- [ ] `tools/Install-DesignUatSkill.ps1` installs `playwright-design`
+- [ ] BT0 green (requires skill file + needles: `playwright-design`, `design-uat`)
+- [ ] PR title includes `#57`
+- [ ] No UAT stamp in PR body
+- [ ] Bob chairs MRB on #57
 
 ## Definition of done (issue #49 — MRB PM harvest)
 

@@ -21,18 +21,18 @@ Read the original brief first. Then inspect every supplied image. Report defects
 - **Artifacts:** PNG/JPG/WebP, Figma exports, PDF pages as images. Do not invent pixels.
 - **Optional:** reference mock for pixel-perfect **G2**.
 
-## Companion artifact skills
-
-Prefer these when the artifact is not a product UI screenshot:
+## Companion skills
 
 | Skill | Artifact |
 |-------|----------|
+| `playwright-design` | Authorized app routes / viewports / states → PNG stills (#57) |
 | `pdf-design` | Multi-page PDF / print page stack |
 | `illustrator-design` | Illustrator `.ai` artboards / AI exports |
 | `graphics-design` | Loose PNG/SVG/icon/brand-kit packs |
 | `mrb-project-management` | FR intake, BT0 evidence, MRB chairing on this repo (#49) |
 
-Each companion still runs **G1–G3** from this skill after page/artboard/asset renders exist.
+`playwright-design` captures browser stills; every companion still runs **G1–G3**
+from this skill after captures or page/artboard/asset renders exist.
 
 ## Procedure (issue #2)
 
