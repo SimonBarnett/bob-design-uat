@@ -11,10 +11,14 @@ function Require-File($rel) {
 }
 
 Require-File '.grok\skills\design-uat\SKILL.md'
+Require-File '.grok\skills\pdf-design\SKILL.md'
+Require-File '.grok\skills\illustrator-design\SKILL.md'
+Require-File '.grok\skills\graphics-design\SKILL.md'
 Require-File 'docs\functional-spec.md'
 Require-File 'docs\feature-request-design-uat-skill-2026-09-22.md'
 Require-File 'docs\feature-request-hallucination-inventory-2026-09-22.md'
 Require-File 'docs\feature-request-pixel-perfect-deltas-2026-09-22.md'
+Require-File 'docs\feature-request-pdf-illustrator-graphics-skills-2026-09-22.md'
 Require-File 'docs\build-and-test-plan.md'
 Require-File 'docs\templates\design-uat-report.md'
 Require-File 'docs\expected-nits.schema.md'
@@ -27,11 +31,26 @@ foreach ($needle in @(
         'name: design-uat', 'G1', 'G2', 'G3', 'OCR', 'ready for human UAT',
         'Severity rubric', 'Per-image walk',
         'Fail-closed', 'Deltas (#8)', 'delta_px', 'Inventory', 'NOT_IN_BRIEF',
-        'chrome', 'copy', 'image', 'flow'
+        'chrome', 'copy', 'image', 'flow',
+        'pdf-design', 'illustrator-design', 'graphics-design'
     )) {
     if ($skill -notmatch [regex]::Escape($needle)) {
         Write-Error "SKILL.md missing expected text: $needle"
         exit 1
+    }
+}
+
+foreach ($pair in @(
+        @{ rel = '.grok\skills\pdf-design\SKILL.md'; name = 'pdf-design' },
+        @{ rel = '.grok\skills\illustrator-design\SKILL.md'; name = 'illustrator-design' },
+        @{ rel = '.grok\skills\graphics-design\SKILL.md'; name = 'graphics-design' }
+    )) {
+    $text = Get-Content (Join-Path $root $pair.rel) -Raw
+    foreach ($needle in @("name: $($pair.name)", 'design-uat', 'G1', 'ready for human UAT')) {
+        if ($text -notmatch [regex]::Escape($needle)) {
+            Write-Error "$($pair.rel) missing expected text: $needle"
+            exit 1
+        }
     }
 }
 
@@ -64,10 +83,14 @@ foreach ($needle in @('delta_px', 'delta_hex')) {
 $scanFiles = @(
     'docs\functional-spec.md',
     '.grok\skills\design-uat\SKILL.md',
+    '.grok\skills\pdf-design\SKILL.md',
+    '.grok\skills\illustrator-design\SKILL.md',
+    '.grok\skills\graphics-design\SKILL.md',
     'docs\build-and-test-plan.md',
     'docs\feature-request-design-uat-skill-2026-09-22.md',
     'docs\feature-request-hallucination-inventory-2026-09-22.md',
-    'docs\feature-request-pixel-perfect-deltas-2026-09-22.md'
+    'docs\feature-request-pixel-perfect-deltas-2026-09-22.md',
+    'docs\feature-request-pdf-illustrator-graphics-skills-2026-09-22.md'
 )
 $secretPatterns = @(
     '(?i)(?:^|[;\s])(?:password|XAI_API_KEY)\s*=\s*[''"]?[a-zA-Z0-9_./+-]{8,}'

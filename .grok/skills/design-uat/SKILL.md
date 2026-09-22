@@ -21,6 +21,18 @@ Read the original brief first. Then inspect every supplied image. Report defects
 - **Artifacts:** PNG/JPG/WebP, Figma exports, PDF pages as images. Do not invent pixels.
 - **Optional:** reference mock for pixel-perfect **G2**.
 
+## Companion artifact skills
+
+Prefer these when the artifact is not a product UI screenshot:
+
+| Skill | Artifact |
+|-------|----------|
+| `pdf-design` | Multi-page PDF / print page stack |
+| `illustrator-design` | Illustrator `.ai` artboards / AI exports |
+| `graphics-design` | Loose PNG/SVG/icon/brand-kit packs |
+
+Each companion still runs **G1–G3** from this skill after page/artboard/asset renders exist.
+
 ## Procedure (issue #2)
 
 1. Inventory artifacts and map each to brief sections (screens, states, breakpoints).
