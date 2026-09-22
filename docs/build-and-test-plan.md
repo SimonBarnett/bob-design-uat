@@ -5,6 +5,7 @@
 **FR:** docs/feature-request-design-uat-skill-2026-09-22.md  
 **Issue (#1):** https://github.com/SimonBarnett/bob-design-uat/issues/1  
 **Issue (#7 G3):** https://github.com/SimonBarnett/bob-design-uat/issues/7 — `docs/feature-request-hallucination-inventory-2026-09-22.md`  
+**Issue (#8 G2):** https://github.com/SimonBarnett/bob-design-uat/issues/8 — `docs/feature-request-pixel-perfect-deltas-2026-09-22.md`  
 
 ## Goals
 
@@ -71,6 +72,8 @@ Expected nit YAML shape for later fixture PRs: `docs/expected-nits.schema.md`. D
 | T-S07 | G3 inventory table required (report template + skill `NOT_IN_BRIEF`; BT0 checks) |
 | T-S08 | G2 row has delta_px and/or delta_hex |
 
+**T-S08 evidence:** BT0 checks skill `Deltas (#8)`, schema `G2 deltas (#8)`, and report template `delta_px` / `delta_hex` columns.
+
 ## P1 — Golden fixtures (issue #3, follow-on PR)
 
 Tree: `fixtures/golden/<case>/` with `brief.md`, screenshot, `expected-nits.yaml` (schema in `docs/expected-nits.schema.md`).
@@ -106,6 +109,19 @@ Tree: `fixtures/golden/<case>/` with `brief.md`, screenshot, `expected-nits.yaml
 - [ ] Test summary on PR (BT0 output; T-S07 row)
 - [ ] No UAT stamp in PR body
 - [ ] Bob chairs MRB on #7 (fixture proof T-G03 stays on #3)
+
+## Definition of done (issue #8 — G2 pixel deltas)
+
+**FR:** `docs/feature-request-pixel-perfect-deltas-2026-09-22.md`  
+**Issue:** https://github.com/SimonBarnett/bob-design-uat/issues/8  
+
+- [ ] `docs/feature-request-pixel-perfect-deltas-2026-09-22.md` on branch
+- [ ] Skill **Deltas (#8)** + schema **G2 deltas (#8)** + report `delta_px` / `delta_hex` columns (T-S08)
+- [ ] BT0 green on PR branch (includes T-S07 + T-S08 needles)
+- [ ] PR title includes `#8`
+- [ ] Test summary on PR (BT0 output + T-S08 note)
+- [ ] No UAT stamp in PR body
+- [ ] Bob chairs MRB on #8 (fixture proof T-G02 stays on #3)
 
 ## Definition of done (issue #2 — three gates)
 
