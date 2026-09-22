@@ -47,6 +47,7 @@
 | A4 | Build-and-test plan documents BT0–BT2 and fixture phases P1–P2. |
 | A5 | Feature-request doc links issue #1 and maps MUSTs to A1–A4. |
 | A6 | Severity rubric + per-image walk in skill; BT0 CI workflow present. |
+| A7 | G1 fail-closed (blocker), G3 full inventory (`in_brief` / `NOT_IN_BRIEF`), G2 `delta_px`/`delta_hex` in schema + skill (#6 #7 #8). |
 
 ## Related GitHub FRs
 
