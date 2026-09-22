@@ -29,6 +29,7 @@ Read the original brief first. Then inspect every supplied image. Report defects
 | `pdf-design` | Multi-page PDF / print page stack |
 | `illustrator-design` | Illustrator `.ai` artboards / AI exports |
 | `graphics-design` | Loose PNG/SVG/icon/brand-kit packs |
+| `mrb-project-management` | FR intake, BT0 evidence, MRB chairing on this repo (#49) |
 
 `playwright-design` captures browser stills; every companion still runs **G1–G3**
 from this skill after captures or page/artboard/asset renders exist.

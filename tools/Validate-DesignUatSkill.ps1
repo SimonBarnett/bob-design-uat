@@ -15,6 +15,7 @@ Require-File '.grok\skills\pdf-design\SKILL.md'
 Require-File '.grok\skills\illustrator-design\SKILL.md'
 Require-File '.grok\skills\graphics-design\SKILL.md'
 Require-File '.grok\skills\playwright-design\SKILL.md'
+Require-File '.grok\skills\mrb-project-management\SKILL.md'
 Require-File 'docs\functional-spec.md'
 Require-File 'docs\feature-request-design-uat-skill-2026-09-22.md'
 Require-File 'docs\feature-request-golden-fixture-pack-2026-09-22.md'
@@ -28,6 +29,7 @@ Require-File '.github\workflows\bt0.yml'
 Require-File 'tools\Install-DesignUatSkill.ps1'
 Require-File 'docs\feature-request-three-gates-2026-09-22.md'
 Require-File 'docs\feature-request-playwright-visual-uat-2026-09-22.md'
+Require-File 'docs\feature-request-mrb-project-management-harvest-2026-09-22.md'
 Require-File 'fixtures\README.md'
 
 $skill = Get-Content (Join-Path $root '.grok\skills\design-uat\SKILL.md') -Raw
@@ -36,7 +38,7 @@ foreach ($needle in @(
         'Severity rubric', 'Per-image walk',
         'Fail-closed', 'Deltas (#8)', 'delta_px', 'Inventory', 'NOT_IN_BRIEF',
         'chrome', 'copy', 'image', 'flow',
-        'playwright-design', 'pdf-design', 'illustrator-design', 'graphics-design'
+        'playwright-design', 'pdf-design', 'illustrator-design', 'graphics-design', 'mrb-project-management'
     )) {
     if ($skill -notmatch [regex]::Escape($needle)) {
         Write-Error "SKILL.md missing expected text: $needle"
@@ -56,6 +58,17 @@ foreach ($pair in @(
             Write-Error "$($pair.rel) missing expected text: $needle"
             exit 1
         }
+    }
+}
+
+$mrbPm = Get-Content (Join-Path $root '.grok\skills\mrb-project-management\SKILL.md') -Raw
+foreach ($needle in @(
+        'name: mrb-project-management', 'bob-hostile-mrb', 'feature-request',
+        'Validate-DesignUatSkill.ps1', 'ready for human UAT', 'build-and-test-plan.md'
+    )) {
+    if ($mrbPm -notmatch [regex]::Escape($needle)) {
+        Write-Error "mrb-project-management SKILL.md missing expected text: $needle"
+        exit 1
     }
 }
 
@@ -92,12 +105,14 @@ $scanFiles = @(
     '.grok\skills\illustrator-design\SKILL.md',
     '.grok\skills\graphics-design\SKILL.md',
     '.grok\skills\playwright-design\SKILL.md',
+    '.grok\skills\mrb-project-management\SKILL.md',
     'docs\build-and-test-plan.md',
     'docs\feature-request-design-uat-skill-2026-09-22.md',
     'docs\feature-request-hallucination-inventory-2026-09-22.md',
     'docs\feature-request-pixel-perfect-deltas-2026-09-22.md',
     'docs\feature-request-pdf-illustrator-graphics-skills-2026-09-22.md',
-    'docs\feature-request-playwright-visual-uat-2026-09-22.md'
+    'docs\feature-request-playwright-visual-uat-2026-09-22.md',
+    'docs\feature-request-mrb-project-management-harvest-2026-09-22.md'
 )
 $secretPatterns = @(
     '(?i)(?:^|[;\s])(?:password|XAI_API_KEY)\s*=\s*[''"]?[a-zA-Z0-9_./+-]{8,}'

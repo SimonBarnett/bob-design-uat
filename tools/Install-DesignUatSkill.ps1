@@ -1,7 +1,7 @@
 # Copy design-uat + companion skills into ~/.grok/skills (local Bob).
 $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $PSScriptRoot
-$names = @('design-uat', 'playwright-design', 'pdf-design', 'illustrator-design', 'graphics-design')
+$names = @('design-uat', 'playwright-design', 'pdf-design', 'illustrator-design', 'graphics-design', 'mrb-project-management')
 foreach ($name in $names) {
     $src = Join-Path $root ".grok\skills\$name"
     $dest = Join-Path $HOME ".grok\skills\$name"

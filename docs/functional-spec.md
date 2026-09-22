@@ -60,10 +60,11 @@
 | `illustrator-design` | Illustrator artboards / exports |
 | `graphics-design` | Loose graphics packs (PNG/SVG/icons) |
 | `playwright-design` | Playwright capture of authorized routes/viewports/states → PNG, then G1–G3 (#57) |
+| `mrb-project-management` | Engineering MRB PM for this repo (issue #49); hostile verdict on `agentic_build` |
 
 ## Related GitHub FRs
 
-#1 skill (MRB home), #3 golden fixtures, #5 adversarial fixtures, #6 G1 spelling, #7 G3 hallucination, #8 G2 pixel deltas; PDF/Illustrator/graphics companions FR (`docs/feature-request-pdf-illustrator-graphics-skills-2026-09-22.md`); Playwright visual capture FR (`docs/feature-request-playwright-visual-uat-2026-09-22.md`, #57).
+#1 skill (MRB home), #3 golden fixtures, #5 adversarial fixtures, #6 G1 spelling, #7 G3 hallucination, #8 G2 pixel deltas; PDF/Illustrator/graphics companions FR (`docs/feature-request-pdf-illustrator-graphics-skills-2026-09-22.md`); Playwright visual capture FR (`docs/feature-request-playwright-visual-uat-2026-09-22.md`, #57); MRB PM harvest (#49, `docs/feature-request-mrb-project-management-harvest-2026-09-22.md`).
 
 ## Phase order
 
