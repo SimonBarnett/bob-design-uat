@@ -30,9 +30,11 @@ Read the original brief first. Then inspect every supplied image. Report defects
 | `illustrator-design` | Illustrator `.ai` artboards / AI exports |
 | `graphics-design` | Loose PNG/SVG/icon/brand-kit packs |
 | `mrb-project-management` | FR intake, BT0 evidence, MRB chairing on this repo (#49) |
+| `uat-video-pack` | Human-speed video evidence pack after functional PASS (Jester/Simon 2026-09-24) |
 
 `playwright-design` captures browser stills; every companion still runs **G1–G3**
-from this skill after captures or page/artboard/asset renders exist.
+from this skill after captures or page/artboard/asset renders exist. `uat-video-pack`
+owns human-speed video edit (not functional assert); workers never stamp ready for human UAT.
 
 ## Procedure (issue #2)
 

@@ -4,13 +4,15 @@ Bob uses this repo for **visual UAT** of product UI. The skill examines screensh
 
 Do not stamp human UAT here. Bob chairs UAT.
 
-## Skill
+## Skills
 
-`.grok/skills/design-uat/SKILL.md`
+- `.grok/skills/design-uat/SKILL.md` — visual G1–G3 gates (still-image UAT)
+- `.grok/skills/uat-video-pack/SKILL.md` — human UAT video pack (after functional PASS; Jester/Simon harvest 2026-09-24)
 
 ## Docs
 
 - `docs/functional-spec.md` — locked gates and acceptance
+- `docs/jester-uat-video-pack-harvest-2026-09-24.md` — UAT video pack harvest (Jester/Simon 2026-09-24)
 - `docs/feature-request-design-uat-skill-2026-09-22.md` — parked FR (#1)
 - `docs/feature-request-golden-fixture-pack-2026-09-22.md` — parked FR (#3, absorbs #5)
 - `docs/feature-request-hallucination-inventory-2026-09-22.md` — G3 inventory FR (#7)
