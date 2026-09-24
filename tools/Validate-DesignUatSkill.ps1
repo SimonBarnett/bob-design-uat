@@ -16,6 +16,7 @@ Require-File '.grok\skills\illustrator-design\SKILL.md'
 Require-File '.grok\skills\graphics-design\SKILL.md'
 Require-File '.grok\skills\playwright-design\SKILL.md'
 Require-File '.grok\skills\mrb-project-management\SKILL.md'
+Require-File '.grok\skills\uat-video-pack\SKILL.md'
 Require-File 'docs\functional-spec.md'
 Require-File 'docs\feature-request-design-uat-skill-2026-09-22.md'
 Require-File 'docs\feature-request-golden-fixture-pack-2026-09-22.md'
@@ -31,6 +32,7 @@ Require-File 'docs\feature-request-three-gates-2026-09-22.md'
 Require-File 'docs\feature-request-playwright-visual-uat-2026-09-22.md'
 Require-File 'docs\feature-request-mrb-project-management-harvest-2026-09-22.md'
 Require-File 'docs\feature-request-screen-layout-overlap-2026-09-22.md'
+Require-File 'docs\jester-uat-video-pack-harvest-2026-09-24.md'
 Require-File 'fixtures\README.md'
 Require-File 'tools\LayoutOverlap-PlaywrightHook.example.mjs'
 
@@ -40,7 +42,7 @@ foreach ($needle in @(
         'Severity rubric', 'Per-image walk',
         'Fail-closed', 'Deltas (#8)', 'delta_px', 'Inventory', 'NOT_IN_BRIEF',
         'chrome', 'copy', 'image', 'flow',
-        'playwright-design', 'pdf-design', 'illustrator-design', 'graphics-design', 'mrb-project-management',
+        'playwright-design', 'pdf-design', 'illustrator-design', 'graphics-design', 'mrb-project-management', 'uat-video-pack',
         'Overlap (#71)', 'T-G04-overlap'
     )) {
     if ($skill -notmatch [regex]::Escape($needle)) {
@@ -79,6 +81,16 @@ foreach ($needle in @(
     }
 }
 
+$uatVideo = Get-Content (Join-Path $root '.grok\skills\uat-video-pack\SKILL.md') -Raw
+foreach ($needle in @(
+        'name: uat-video-pack', 'human speed', 'draw_mouse', 'ready for human UAT', 'design-uat'
+    )) {
+    if ($uatVideo -notmatch [regex]::Escape($needle)) {
+        Write-Error "uat-video-pack SKILL.md missing expected text: $needle"
+        exit 1
+    }
+}
+
 $report = Get-Content (Join-Path $root 'docs\templates\design-uat-report.md') -Raw
 foreach ($needle in @(
         'G3 inventory (required)', 'in_brief', 'NOT_IN_BRIEF',
@@ -113,6 +125,7 @@ $scanFiles = @(
     '.grok\skills\graphics-design\SKILL.md',
     '.grok\skills\playwright-design\SKILL.md',
     '.grok\skills\mrb-project-management\SKILL.md',
+    '.grok\skills\uat-video-pack\SKILL.md',
     'docs\build-and-test-plan.md',
     'docs\feature-request-design-uat-skill-2026-09-22.md',
     'docs\feature-request-hallucination-inventory-2026-09-22.md',
@@ -120,7 +133,8 @@ $scanFiles = @(
     'docs\feature-request-pdf-illustrator-graphics-skills-2026-09-22.md',
     'docs\feature-request-playwright-visual-uat-2026-09-22.md',
     'docs\feature-request-mrb-project-management-harvest-2026-09-22.md',
-    'docs\feature-request-screen-layout-overlap-2026-09-22.md'
+    'docs\feature-request-screen-layout-overlap-2026-09-22.md',
+    'docs\jester-uat-video-pack-harvest-2026-09-24.md'
 )
 $secretPatterns = @(
     '(?i)(?:^|[;\s])(?:password|XAI_API_KEY)\s*=\s*[''"]?[a-zA-Z0-9_./+-]{8,}'
