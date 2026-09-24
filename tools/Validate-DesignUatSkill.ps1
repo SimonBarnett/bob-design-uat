@@ -16,7 +16,8 @@ Require-File '.grok\skills\illustrator-design\SKILL.md'
 Require-File '.grok\skills\graphics-design\SKILL.md'
 Require-File '.grok\skills\playwright-design\SKILL.md'
 Require-File '.grok\skills\mrb-project-management\SKILL.md'
-Require-File '.grok\skills\uat-video-pack\SKILL.md'
+Require-File '.grok\skills\harvest-agent-skills\SKILL.md'
+Require-File 'docs\skill-harvest-log.md'
 Require-File 'docs\functional-spec.md'
 Require-File 'docs\feature-request-design-uat-skill-2026-09-22.md'
 Require-File 'docs\feature-request-golden-fixture-pack-2026-09-22.md'
@@ -67,6 +68,18 @@ foreach ($pair in @(
             Write-Error "$($pair.rel) missing expected text: $needle"
             exit 1
         }
+    }
+}
+
+$harvest = Get-Content (Join-Path $root '.grok\skills\harvest-agent-skills\SKILL.md') -Raw
+foreach ($needle in @(
+        'name: harvest-agent-skills',
+        'github: https://github.com/SimonBarnett/bob-design-uat',
+        'honesty box'
+    )) {
+    if ($harvest -notmatch [regex]::Escape($needle)) {
+        Write-Error "harvest-agent-skills SKILL.md missing expected text: $needle"
+        exit 1
     }
 }
 
@@ -125,7 +138,8 @@ $scanFiles = @(
     '.grok\skills\graphics-design\SKILL.md',
     '.grok\skills\playwright-design\SKILL.md',
     '.grok\skills\mrb-project-management\SKILL.md',
-    '.grok\skills\uat-video-pack\SKILL.md',
+    '.grok\skills\harvest-agent-skills\SKILL.md',
+    'docs\skill-harvest-log.md',
     'docs\build-and-test-plan.md',
     'docs\feature-request-design-uat-skill-2026-09-22.md',
     'docs\feature-request-hallucination-inventory-2026-09-22.md',
